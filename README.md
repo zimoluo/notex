@@ -1,4 +1,4 @@
-`notex.cls` defines a series of behavior based on `amsart` class.
+`notex.cls` is a fork of `rosstex.cls`, which defines a series of behavior based on the `amsart` class.
 
 * Sections are now rearranged as Problems, while the Appendix remains the same.
 * Builtin environment for Problem, Theorem, Lemma, Corollary, Definition, and more.
