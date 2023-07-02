@@ -1,5 +1,6 @@
-`notex.cls` is a fork of `rosstex.cls`, which defines a series of behavior based on the `amsart` class.
+`notex.cls` defines a series of behavior based on the `amsart` class.
 
-* Sections are now rearranged as Problems, while the Appendix remains the same.
+* Sections, Subsections, and Subsubsections are now Chapters, Modules, and Topics.
 * Builtin environment for Problem, Theorem, Lemma, Corollary, Definition, and more.
-* `\title` is not necessarily defined. Instead, a variable named `lecture` gives you the option to directly input the 'number' of the lecture. The title will then be automatically formulated as `Lecture #{lecture}`.
+* Revamped `proof` environment to use a box similar to theorem and lemma. The old `proof` environment provided by `amsart` can be accessed by `legacyproof`.
+* `\title` is not necessarily defined. Instead, a variable named `lecture` gives you the option to directly input the information of the lecture. The title will then be automatically formulated as `Lecture #{lecture}`.
