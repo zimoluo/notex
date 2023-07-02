@@ -185,9 +185,9 @@
 \setcounter{section}{0}
 \titleformat{\section}
   {\normalfont}
-  {\MakeUppercase{Appendix \alph{section}.}}
+  {\Large\MakeUppercase{Appendix \alph{section}.}}
   {1em}
-  {\MakeUppercase}
+  {\Large}
   [{\titlerule[0.8pt]\smallskip}]
 }
 
