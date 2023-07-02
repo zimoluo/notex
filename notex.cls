@@ -11,6 +11,7 @@
 \RequirePackage{amsthm}
 \RequirePackage{amssymb}
 \RequirePackage{graphicx}
+\RequirePackage{lipsum}
 \RequirePackage[margin=0.75in]{geometry}
 \RequirePackage{setspace}
 \RequirePackage{graphicx}
