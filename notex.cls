@@ -16,7 +16,6 @@
 \RequirePackage{graphicx}
 \RequirePackage{tikz}
 \RequirePackage{mathtools}
-\RequirePackage[framemethod=tikz]{mdframed}
 \RequirePackage{titlesec}
 \RequirePackage{fancyhdr}
 \RequirePackage{pdfpages}
