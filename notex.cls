@@ -145,12 +145,12 @@
   \fancyhf{}
   \renewcommand{\headrulewidth}{0pt}
   \fancyhead[LE,RO]{\scshape\small\thepage}
-  \fancyhead[LO,RE]{\scshape\small{\ifx\@lecture\undefined
+  \fancyhead[LO,RE]{\scshape\small\leftmark}
+  \fancyhead[C]{\scshape\small {{\scshape\small\ifodd\value{page} {\scshape\small{\ifx\@lecture\undefined
       {{\thistitle}}
     \else
       {{Lecture {\#\@lecture}}}
-    \fi}}
-  \fancyhead[C]{\scshape\small {{\scshape\small\ifodd\value{page} {\small\leftmark}\else {\small\@notetaker}\fi}}}
+    \fi}}\else {\small\@notetaker}\fi}}}
 
   \setlength{\headheight}{24.5042pt}
 }
