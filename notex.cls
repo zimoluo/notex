@@ -10,6 +10,7 @@
 \RequirePackage{amsmath}
 \RequirePackage{amsthm}
 \RequirePackage{amssymb}
+\RequirePackage{float}
 \RequirePackage{graphicx}
 \RequirePackage{lipsum}
 \RequirePackage[margin=0.75in]{geometry}
