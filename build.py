@@ -25,7 +25,7 @@ class THMBuilder:
                 line = line.replace("}", "*}")
 
             elif "thmcounter" in line:
-                line = line.replace("\\thesection.\\arabic{thmcounter}", "")
+                line = line.replace(" \\thesection.\\arabic{thmcounter}", "")
                 line = line.replace("\\refstepcounter{thmcounter}", "")
 
             self.built.append(line)
