@@ -109,13 +109,17 @@
 \newcommand{\subheadertitle}[1]{\renewcommand{\defaultsubheader}{#1}}
 \newcommand{\subsubheadertitle}[1]{\renewcommand{\defaultsubsubheader}{#1}}
 
-\let\originalproof\proof
-\let\endoriginalproof\endproof
-\newenvironment{legacyproof}{
-  \begin{originalproof}
+\newenvironment{legacyproof}{\par
+  \pushQED{\qed}
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep
+        \itshape
+    Proof\@addpunct{.}]\ignorespaces
 }{
-  \end{originalproof}
+  \popQED\endtrivlist\@endpefalse
 }
+
 \let\proof\undefined
 \let\endproof\undefined
 
