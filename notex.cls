@@ -17,6 +17,7 @@
 \RequirePackage{setspace}
 \RequirePackage{graphicx}
 \RequirePackage{tikz}
+\RequirePackage{asymptote}
 \RequirePackage{mathtools}
 \RequirePackage{titlesec}
 \RequirePackage{fancyhdr}
