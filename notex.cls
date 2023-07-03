@@ -84,7 +84,12 @@
 \newcommand{\Zplus}{\mathbb{Z}^{+}}
 
 \newcommand{\NoTeX}{N\kern-.05em\raisebox{.4ex}{\scalebox{0.84}{O}}\kern-.05em\TeX}
-\newcommand{\RossTeX}{\raisebox{-0.4ex}{\scalebox{1.55}{$\mathbb{R}$}}\kern-.35em\raisebox{.4ex}{\scalebox{0.84}{OSS}}\kern-.08em\TeX}
+\newcommand{\RossTeX}{\tikz[baseline=(R.base)]{
+    \node[draw, circle, inner sep=0pt, minimum size=1.8em] at (0em, 0) (circle) {};
+    \node[inner sep=0pt] (R) at (0.01em, 0) {\raisebox{-0.4ex}{\scalebox{1.33}{$\mathbb{R}$}}};
+    \node[inner sep=0pt] (OSS) at (1.4em, 0.25em) {\scalebox{0.84}{OSS}};
+    \node[inner sep=0pt] (TeX) at (2.8em, -0.15em) {\TeX};
+}}
 
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
 \newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
