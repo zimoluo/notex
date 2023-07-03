@@ -57,6 +57,7 @@
 
 \setstretch{1.5}
 \setlength\parindent{0pt}
+\setlength{\parskip}{0.5em}
 
 \usetikzlibrary{arrows,scopes,positioning,cd,calc}
 
@@ -128,15 +129,13 @@
   \vspace{0.4in}
 }
 
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+
 \fancypagestyle{notexstyle}{
   \fancyhf{}
   \renewcommand{\headrulewidth}{0pt}
   \fancyhead[LE,RO]{\small\thepage}
-  \fancyhead[C]{\scshape\small {{\scshape\small\ifodd\value{page} {\ifx\@lecture\undefined
-      {\small{\thistitle} \par}
-    \else
-      {\small{Lecture {\#\@lecture}} \par}
-    \fi}\else {\small\@notetaker}\fi}}}
+  \fancyhead[C]{\scshape\small {{\scshape\small\ifodd\value{page} {\small\leftmark}\else {\small\@notetaker}\fi}}}
 
   \setlength{\headheight}{24.5042pt}
 }
