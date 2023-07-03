@@ -83,6 +83,8 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Zplus}{\mathbb{Z}^{+}}
 
+\newcommand{\NoTeX}{N\kern-.08em\lower.4ex\hbox{O}\kern-.08em\TeX}
+
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
 \newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
