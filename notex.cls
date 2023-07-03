@@ -83,7 +83,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Zplus}{\mathbb{Z}^{+}}
 
-\newcommand{\NoTeX}{N\kern-.05em\raisebox{.4ex}{\scalebox{0.84}{O}}\kern-.05em\TeX}
+\newcommand{\NoTeX}{N\kern-.15em\raisebox{.4ex}{\scalebox{0.84}{O}}\kern-.25em\TeX}
 \newcommand{\RossTeX}{\tikz[baseline=(R.base)]{
     \node[draw, circle, inner sep=0pt, minimum size=1.8em] at (0em, 0) (circle) {};
     \node[inner sep=0pt] (R) at (0.01em, 0) {\raisebox{-0.4ex}{\scalebox{1.33}{$\mathbb{R}$}}};
@@ -100,6 +100,14 @@
 \newcommand{\notetaker}[1]{\gdef\@notetaker{#1}}
 \renewcommand{\author}[1]{\notetaker{#1}}
 
+\newcommand{\defaultheader}{Chapter}
+\newcommand{\defaultsubheader}{Module}
+\newcommand{\defaultsubsubheader}{Topic}
+
+\newcommand{\headertitle}[1]{\renewcommand{\defaultheader}{#1}}
+\newcommand{\subheadertitle}[1]{\renewcommand{\defaultsubheader}{#1}}
+\newcommand{\subsubheadertitle}[1]{\renewcommand{\defaultsubsubheader}{#1}}
+
 \let\originalproof\proof
 \let\endoriginalproof\endproof
 \newenvironment{legacyproof}{
@@ -110,8 +118,8 @@
 \let\proof\undefined
 \let\endproof\undefined
 
-\newenvironment{proof}
-{\par\begin{tcolorbox}[title={\textit{Proof.}}, colback=pshadegreen!05, colframe=pshadegreen!25, coltitle=black, fonttitle=\bfseries,boxsep=2.2mm,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
+\newenvironment{proof}[1][]
+{\par\begin{tcolorbox}[title={\textit{Proof}\ifx\\#1\\\textit{\!.}\else\textit{\!:} #1\fi}, colback=pshadegreen!05, colframe=pshadegreen!25, coltitle=black, fonttitle=\bfseries,boxsep=2.2mm,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
 {\hfill \qedsymbol\end{tcolorbox}\par}
 
 \renewcommand{\@maketitle}{
@@ -151,7 +159,6 @@
     \else
       {{Lecture {\#\@lecture}}}
     \fi}}\else {\small\@notetaker}\fi}}}
-
   \setlength{\headheight}{24.5042pt}
 }
 
@@ -159,7 +166,7 @@
 
 \titleformat{\section}
   {\normalfont}
-  {\Large\MakeUppercase{\MakeUppercase{Chapter }\arabic{section}.}}
+  {\Large\MakeUppercase{\MakeUppercase{\defaultheader\ }\arabic{section}.}}
   {0.4em}
   {\Large}
   [{\titlerule[0.8pt]\smallskip}]
@@ -173,7 +180,7 @@
 
 \titleformat{\subsection}
   {\large\normalfont\bfseries}
-  {Module \textbf{\thesubsection}.\ }
+  {\defaultsubheader\ \textbf{\thesubsection}.\ }
   {0em}
   {}
   []
@@ -185,7 +192,7 @@
 
 \titleformat{\subsubsection}
   {\large\normalfont}
-  {{Topic \thesubsubsection}.\ }
+  {{\defaultsubsubheader\ \thesubsubsection}.\ }
   {0em}
   {}
   []
