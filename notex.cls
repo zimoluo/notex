@@ -131,6 +131,7 @@
 }
 
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+\renewcommand{\refname}{\MakeUppercase{References}}
 
 \fancypagestyle{notexstyle}{
   \fancyhf{}
