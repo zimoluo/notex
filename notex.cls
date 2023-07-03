@@ -83,8 +83,8 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Zplus}{\mathbb{Z}^{+}}
 
-\newcommand{\NoTeX}{N\kern-.08em\lower.4ex\hbox{O}\kern-.08em\TeX}
-\newcommand{\RossTeX}{R\kern-.08em\lower.4ex\hbox{OSS}\kern-.08em\TeX}
+\newcommand{\NoTeX}{N\kern-.05em\raisebox{.4ex}{\scalebox{0.84}{O}}\kern-.05em\TeX}
+\newcommand{\RossTeX}{\raisebox{-0.4ex}{\scalebox{1.55}{$\mathbb{R}$}}\kern-.35em\raisebox{.4ex}{\scalebox{0.84}{OSS}}\kern-.08em\TeX}
 
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
 \newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
