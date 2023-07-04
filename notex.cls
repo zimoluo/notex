@@ -24,6 +24,7 @@
 \RequirePackage{asymptote}
 \RequirePackage{mathtools}
 \RequirePackage{titlesec}
+\RequirePackage{titletoc}
 \RequirePackage{fancyhdr}
 \RequirePackage{pdfpages}
 \RequirePackage{xcolor}
@@ -72,6 +73,7 @@
 \setstretch{1.5}
 \setlength\parindent{0pt}
 \setlength{\parskip}{0.5em}
+\setcounter{tocdepth}{4}
 
 \usetikzlibrary{arrows,scopes,positioning,cd,calc}
 
@@ -181,6 +183,29 @@
 }
 
 \pagestyle{notexstyle}
+
+\renewcommand{\contentsname}{\normalfont\raggedright\Large\MakeUppercase{Contents}\vskip 0.4em\hrule height 0.8pt}
+
+\titlecontents{section}
+  [2.6em]
+  {}
+  {\large\contentslabel{2.3em}}
+  {\hspace*{-2.3em}}
+  {\titlerule*[1pc]{.}\contentspage}  
+
+\titlecontents{subsection}
+  [3.5em]
+  {}
+  {\contentslabel{2.65em}}
+  {\hspace*{-2.65em}}
+  {\titlerule*[1pc]{.}\contentspage}  
+
+\titlecontents{subsubsection}
+  [4.75em]
+  {}
+  {\contentslabel{3.3em}}
+  {\hspace*{-3.3em}}
+  {\titlerule*[1pc]{.}\contentspage}  
 
 \titleformat{\section}
   {\normalfont}
