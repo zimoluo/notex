@@ -70,9 +70,9 @@
 \definecolor{pdarkblue}{HTML}{0052C6}
 \definecolor{pdustyellow}{HTML}{C69423}
 
-\setstretch{1.5}
-\setlength\parindent{0pt}
-\setlength{\parskip}{0.5em}
+\setstretch{1.2}
+\setlength\parindent{1.6em}
+\setlength{\parskip}{0.35em}
 \setcounter{tocdepth}{4}
 
 \usetikzlibrary{arrows,scopes,positioning,cd,calc}
@@ -467,6 +467,9 @@
   }
 }
 
+\setstretch{1.4}
+\setlength\parindent{0pt}
+
 \newcommand{\psetnum}[1]{\gdef\@titlepreset{#1}}
 \newcommand{\solver}[1]{\gdef\@solver{#1}}
 \renewcommand{\author}[1]{\solver{#1}}
@@ -549,6 +552,7 @@
   {\itshape}
   [.]
 \else
+\RequirePackage{indentfirst}
 \fi
 
 \endinput
