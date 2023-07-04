@@ -17,7 +17,7 @@
 \RequirePackage{float}
 \RequirePackage{graphicx}
 \RequirePackage{lipsum}
-\RequirePackage[margin=0.75in]{geometry}
+\RequirePackage[margin=0.7in]{geometry}
 \RequirePackage{setspace}
 \RequirePackage{graphicx}
 \RequirePackage{tikz}
