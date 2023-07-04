@@ -9,7 +9,7 @@
 * Try out `\NoTeX` and `\RossTeX`!
 * Has an extra option named `rosstex`.
   * Activated using `[rosstex]` option.
-    * `\lecture` command will be removed. Use `\psetnum` command instead.
+    * `\lecture` will now denote the number of the problem set, making the title `Problem Set ${}`. Additionally, `\psetnum` command will be available as an alias to `\lecture`.
   * Redefines Sections to Problems.
   * Redefines Subsections and Subsubsections resembling those in `amsart` class.
   * Has an optional Ross Program logo enabled using `\enablerosslogo`.
