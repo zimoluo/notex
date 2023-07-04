@@ -112,7 +112,7 @@
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 
-\newcommand{\lecture}[1]{\gdef\@lecture{#1}}
+\newcommand{\lecture}[1]{\gdef\@titlepreset{#1}}
 \newcommand{\notetaker}[1]{\gdef\@notetaker{#1}}
 \renewcommand{\author}[1]{\notetaker{#1}}
 
@@ -148,10 +148,10 @@
   \vspace{-0.5in}
   \begin{center}
     \let\footnote\@date
-    \ifx\@lecture\undefined
+    \ifx\@titlepreset\undefined
       {\large\bfseries\MakeUppercase{\@title} \par}
     \else
-      {\large\bfseries\MakeUppercase{Lecture {\#\@lecture}} \par}
+      {\large\bfseries\MakeUppercase{Lecture {\#\@titlepreset}} \par}
     \fi
     \vskip 0.25em
     \ifx\@notetaker\undefined
@@ -174,10 +174,10 @@
   \renewcommand{\headrulewidth}{0pt}
   \fancyhead[LE,RO]{\scshape\small\thepage}
   \fancyhead[LO,RE]{\scshape\small\leftmark}
-  \fancyhead[C]{\scshape\small {{\scshape\small\ifodd\value{page} {\scshape\small{\ifx\@lecture\undefined
+  \fancyhead[C]{\scshape\small {{\scshape\small\ifodd\value{page} {\scshape\small{\ifx\@titlepreset\undefined
       {{\thistitle}}
     \else
-      {{Lecture {\#\@lecture}}}
+      {{Lecture {\#\@titlepreset}}}
     \fi}}\else {\small\@notetaker}\fi}}}
   \setlength{\headheight}{24.5042pt}
 }
@@ -467,12 +467,10 @@
   }
 }
 
-\newcommand{\psetnum}[1]{\gdef\@psetnum{#1}}
+\newcommand{\psetnum}[1]{\gdef\@titlepreset{#1}}
 \newcommand{\solver}[1]{\gdef\@solver{#1}}
 \renewcommand{\author}[1]{\solver{#1}}
-\let\lecture\relax
 \let\notetaker\relax
-\def\@lecture{}
 \def\@notetaker{}
 
 \let\subheadertitle\relax
@@ -484,10 +482,10 @@
   \vspace{-0.5in}
   \begin{center}
     \let\footnote\@date
-    \ifx\@psetnum\undefined
+    \ifx\@titlepreset\undefined
       {\large\bfseries\MakeUppercase{\@title} \par}
     \else
-      {\large\bfseries\MakeUppercase{Problem Set {\#\@psetnum}} \par}
+      {\large\bfseries\MakeUppercase{Problem Set {\#\@titlepreset}} \par}
     \fi
     \vskip 0.25em
     \ifx\@solver\undefined
@@ -507,10 +505,10 @@
   \renewcommand{\headrulewidth}{0pt}
   \fancyhead[LE,RO]{\scshape\small\thepage}
   \fancyhead[LO,RE]{\scshape\small\@date}
-  \fancyhead[C]{\scshape\small {{\scshape\small\ifodd\value{page} {\ifx\@psetnum\undefined
+  \fancyhead[C]{\scshape\small {{\scshape\small\ifodd\value{page} {\ifx\@titlepreset\undefined
       {\small{\thistitle}}
     \else
-      {\small{Problem Set {\#\@psetnum}}}
+      {\small{Problem Set {\#\@titlepreset}}}
     \fi}\else {\small\@solver}\fi}}}
 
   \setlength{\headheight}{24.5042pt}
