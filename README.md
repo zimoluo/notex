@@ -6,6 +6,7 @@
 * Revamped `proof` environment to use a box similar to theorem and lemma. The old `proof` environment provided by `amsart` can be accessed by `legacyproof`.
 * `\title` is not necessarily defined. Instead, a variable named `lecture` gives you the option to directly input the information of the lecture. The title will then be automatically formulated as `Lecture #{lecture}`.
 * Provides some shortcut to mathematical environments like `\floor{}`.
+* Try out `\NoTeX` and `\RossTeX`!
 * Has an extra option named `rosstex`.
   * Activated using `[rosstex]` option.
     * `\lecture` command will be removed. Use `\psetnum` command instead.

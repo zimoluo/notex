@@ -97,6 +97,13 @@
 \newcommand{\Zplus}{\mathbb{Z}^{+}}
 
 \newcommand{\NoTeX}{N\kern-.15em\raisebox{.4ex}{\scalebox{0.84}{O}}\kern-.25em\TeX}
+\newcommand{\RossTeX}{\tikz[baseline=(R.base)]{
+    \node[draw, circle, inner sep=0pt, minimum size=1.8em] at (0em, 0) (circle) {};
+    \node[inner sep=0pt] (R) at (0.01em, 0) {\raisebox{-0.4ex}{\scalebox{1.33}{$\mathbb{R}$}}};
+    \node[inner sep=0pt] (OSS) at (1.4em, 0.25em) {\scalebox{0.84}{OSS}};
+    \node[inner sep=0pt] (TeX) at (2.8em, -0.15em) {\TeX};
+  }
+}
 
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
 \newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
@@ -434,13 +441,7 @@
     contents={\includegraphics{res/rosslogo.pdf}}
   }
 }
-\newcommand{\RossTeX}{\tikz[baseline=(R.base)]{
-    \node[draw, circle, inner sep=0pt, minimum size=1.8em] at (0em, 0) (circle) {};
-    \node[inner sep=0pt] (R) at (0.01em, 0) {\raisebox{-0.4ex}{\scalebox{1.33}{$\mathbb{R}$}}};
-    \node[inner sep=0pt] (OSS) at (1.4em, 0.25em) {\scalebox{0.84}{OSS}};
-    \node[inner sep=0pt] (TeX) at (2.8em, -0.15em) {\TeX};
-  }
-}
+
 \newcommand{\psetnum}[1]{\gdef\@psetnum{#1}}
 \newcommand{\solver}[1]{\gdef\@solver{#1}}
 \renewcommand{\author}[1]{\solver{#1}}
