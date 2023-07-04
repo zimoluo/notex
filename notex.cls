@@ -518,6 +518,23 @@
 
 \renewcommand{\defaultheader}{Problem}
 
+\renewcommand{\thesubsection}{\thesection\ (\alph{subsection})}
+\renewcommand{\thesubsubsection}{\thesubsection(\textit{\roman{subsubsection}})}
+
+\titlecontents{subsection}
+  [3.5em]
+  {}
+  {\contentslabel{2.9em}}
+  {\hspace*{-2.9em}}
+  {\titlerule*[1pc]{.}\contentspage}  
+
+\titlecontents{subsubsection}
+  [5.25em]
+  {}
+  {\contentslabel{3.9em}}
+  {\hspace*{-3.9em}}
+  {\titlerule*[1pc]{.}\contentspage} 
+
 \titleformat{\subsection}[runin]
   {\normalfont\bfseries}
   {\textbf{(\alph{subsection})}\ }
