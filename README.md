@@ -8,7 +8,7 @@
 * Provides some shortcut to mathematical environments like `\floor{}`.
 * Try out `\NoTeX` and `\RossTeX`!
 * Has an extra option named `rosstex`.
-  * Activated using `[rosstex]` option.
+  * Activated using `\documentclass[rosstex]{notex}`.
     * `\lecture` will now denote the number of the problem set, making the title `Problem Set #{}`. Additionally, `\psetnum` command will be available as an alias to `\lecture`.
   * Redefines Sections to Problems.
   * Redefines Subsections and Subsubsections resembling those in `amsart` class.
