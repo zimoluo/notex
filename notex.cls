@@ -209,16 +209,16 @@
 
 \titleformat{\section}
   {\normalfont}
-  {\Large\MakeUppercase{\MakeUppercase{\defaultheader\ }\arabic{section}.}}
+  {\Large\MakeUppercase{{\defaultheader\ }\arabic{section}.}}
   {0.4em}
-  {\Large}
+  {\Large\scshape}
   [{\titlerule[0.8pt]\smallskip}]
 
 \titleformat{name=\section,numberless}
   {\normalfont}
   {\Large}
   {0em}
-  {\Large}
+  {\Large\scshape}
   [{\titlerule[0.8pt]\smallskip}]
 
 \titleformat{\subsection}
@@ -252,13 +252,13 @@
   {\normalfont}
   {\Large\MakeUppercase{Appendix \thesection. }}
   {0em}
-  {\Large}
+  {\Large\scshape}
   [{\titlerule[0.8pt]\smallskip}]
 \titleformat{name=\section,numberless}
   {\normalfont}
-  {\Large\MakeUppercase{\MakeUppercase{Appendix}.\ }}
+  {\Large\MakeUppercase{{Appendix}.\ }}
   {0em}
-  {\Large}
+  {\Large\scshape}
   [{\titlerule[0.8pt]\smallskip}]
 }
 
@@ -524,7 +524,7 @@
   {\normalfont\bfseries}
   {\textbf{(\alph{subsection})}\ }
   {0em}
-  {}
+  {\bfseries}
   [.]
 
 \titleformat{\subsubsection}[runin]
