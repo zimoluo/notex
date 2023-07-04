@@ -212,14 +212,14 @@
   {\Large\scshape\MakeUppercase{{\defaultheader\ }\arabic{section}.}}
   {0.4em}
   {\Large\scshape}
-  [{\titlerule[0.8pt]\smallskip}]
+  [{\titlerule[0.8pt]}]
 
 \titleformat{name=\section,numberless}
   {\normalfont}
   {\Large\scshape}
   {0em}
   {\Large\scshape}
-  [{\titlerule[0.8pt]\smallskip}]
+  [{\titlerule[0.8pt]}]
 
 \titleformat{\subsection}
   {\large\normalfont\bfseries}
@@ -253,13 +253,13 @@
   {\Large\scshape\MakeUppercase{Appendix \thesection. }}
   {0em}
   {\Large\scshape}
-  [{\titlerule[0.8pt]\smallskip}]
+  [{\titlerule[0.8pt]}]
 \titleformat{name=\section,numberless}
   {\normalfont}
   {\Large\scshape\MakeUppercase{{Appendix}.\ }}
   {0em}
   {\Large\scshape}
-  [{\titlerule[0.8pt]\smallskip}]
+  [{\titlerule[0.8pt]}]
 }
 
 \newcounter{thmcounter}[section]
