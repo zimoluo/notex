@@ -70,7 +70,7 @@
 \definecolor{pdarkblue}{HTML}{0052C6}
 \definecolor{pdustyellow}{HTML}{C69423}
 
-\setstretch{1.2}
+\setstretch{1.24}
 \setlength\parindent{1.6em}
 \setlength{\parskip}{0.35em}
 \setcounter{tocdepth}{4}
