@@ -19,7 +19,6 @@
 \RequirePackage{lipsum}
 \RequirePackage[margin=0.7in]{geometry}
 \RequirePackage{setspace}
-\RequirePackage{graphicx}
 \RequirePackage{tikz}
 \RequirePackage{asymptote}
 \RequirePackage{mathtools}
