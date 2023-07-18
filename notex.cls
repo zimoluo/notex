@@ -109,8 +109,15 @@
   \fi
 }
 
+\newcommand{\bracket}[1]{\left[#1\right]}
+\newcommand{\curlybracket}[1]{\left\{#1\right\}}
+\newcommand{\parenthesis}[1]{\left(#1\right)}
+\newcommand{\vertlines}[1]{\left\lvert#1\right\right\rvert}
+
 \newcommand{\vecdouble}[2]{\displaystyle\begin{bmatrix}#1 \\ #2 \end{bmatrix}}
 \newcommand{\vecd}[2]{\vecdouble{#1}{#2}}
+\newcommand{\vectriple}[3]{\displaystyle\begin{bmatrix}#1 \\ #2 \\ #3 \end{bmatrix}}
+\newcommand{\vect}[3]{\vectriple{#1}{#2}{#3}}
 
 \newcommand{\NoTeX}{N\kern-.15em\raisebox{.4ex}{\scalebox{0.84}{O}}\kern-.25em\TeX\kern.25em}
 \newcommand{\RossTeX}{\tikz[baseline=(R.base)]{
