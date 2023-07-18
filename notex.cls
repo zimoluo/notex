@@ -112,7 +112,7 @@
 \newcommand{\bracket}[1]{\left[#1\right]}
 \newcommand{\curlybracket}[1]{\left\{#1\right\}}
 \newcommand{\parenthesis}[1]{\left(#1\right)}
-\newcommand{\vertlines}[1]{\left\lvert#1\right\right\rvert}
+\newcommand{\vertlines}[1]{\left\lvert#1\right\rvert}
 
 \newcommand{\vecdouble}[2]{\displaystyle\begin{bmatrix}#1 \\ #2 \end{bmatrix}}
 \newcommand{\vecd}[2]{\vecdouble{#1}{#2}}
