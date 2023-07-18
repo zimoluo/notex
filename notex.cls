@@ -166,7 +166,7 @@
 \renewcommand{\@maketitle}{
   \newpage
   \null
-  \vspace{-0.5in}
+  \vspace{-2.5em}
   \begin{center}
     \let\footnote\@date
     \ifx\@titlepreset\undefined
@@ -184,7 +184,7 @@
     {\let\thefootnote\relax\footnotetext{\textit{Date}: \@date}}
   \end{center}
   \par
-  \vspace{0.4in}
+  \vspace{0.7em}
 }
 
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
@@ -503,7 +503,7 @@
 \renewcommand{\@maketitle}{
   \newpage
   \null
-  \vspace{-0.5in}
+  \vspace{-2.5em}
   \begin{center}
     \let\footnote\@date
     \ifx\@titlepreset\undefined
@@ -521,7 +521,7 @@
     {\let\thefootnote\relax\footnotetext{\textit{Date}: \@date}}
   \end{center}
   \par
-  \vspace{0.4in}
+  \vspace{0.7em}
 }
 
 \fancypagestyle{rosstexstyle}{
