@@ -96,6 +96,21 @@
 \newcommand{\U}{\mathbb{U}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Zplus}{\mathbb{Z}^{+}}
+\newcommand{\Line}{\mathcal{L}}
+
+\newcommand{\disfrac}[2]{\displaystyle\frac{#1}{#2}}
+
+\providecommand{\forcedisfrac}{
+  \ifdefined\oldfrac\relax
+    \renewcommand{\frac}[2]{\displaystyle\oldfrac{##1}{##2}}%
+  \else
+    \let\oldfrac\frac
+    \renewcommand{\frac}[2]{\displaystyle\oldfrac{##1}{##2}}%
+  \fi
+}
+
+\newcommand{\vecdouble}[2]{\displaystyle\begin{bmatrix}#1 \\ #2 \end{bmatrix}}
+\newcommand{\vecd}[2]{\vecdouble{#1}{#2}}
 
 \newcommand{\NoTeX}{N\kern-.15em\raisebox{.4ex}{\scalebox{0.84}{O}}\kern-.25em\TeX\kern.25em}
 \newcommand{\RossTeX}{\tikz[baseline=(R.base)]{
