@@ -54,6 +54,8 @@ class THMBuilder:
             file.truncate()
             file.write(''.join(self.clstext))
 
-thmbuilder = THMBuilder()
-thmbuilder.process_format()
-thmbuilder.build()
+
+if __name__ == "__main__":
+    thmbuilder = THMBuilder()
+    thmbuilder.process_format()
+    thmbuilder.build()
