@@ -1,5 +1,6 @@
 FILE_NAME = 'notex.cls'
 
+
 class THMBuilder:
     def __init__(self):
         with open(FILE_NAME) as file:
@@ -54,6 +55,8 @@ class THMBuilder:
             file.truncate()
             file.write(''.join(self.clstext))
 
-thmbuilder = THMBuilder()
-thmbuilder.process_format()
-thmbuilder.build()
+
+if __name__ == '__main__':
+    thmbuilder = THMBuilder()
+    thmbuilder.process_format()
+    thmbuilder.build()
