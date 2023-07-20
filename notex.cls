@@ -230,7 +230,7 @@
 
 \titleformat{\section}
   {\normalfont}
-  {\Large\scshape\MakeUppercase{{\defaultheader\ }\arabic{section}.}}
+  {\Large\scshape{{\defaultheader\ }\arabic{section}.}}
   {0.4em}
   {\Large\scshape}
   [{\titlerule[0.8pt]}]
@@ -551,6 +551,13 @@
   {\contentslabel{2.9em}}
   {\hspace*{-2.9em}}
   {\titlerule*[1pc]{.}\contentspage}  
+
+\titleformat{\section}
+  {\normalfont}
+  {\Large\scshape\MakeUppercase{{\defaultheader\ }\arabic{section}.}}
+  {0.4em}
+  {\Large\scshape}
+  [{\titlerule[0.8pt]}]
 
 \titlecontents{subsubsection}
   [5.25em]
