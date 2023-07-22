@@ -24,6 +24,8 @@ class THMBuilder:
         for line in self.format:
             if line.startswith("\\newenvironment{"):
                 line = line.replace("}", "*}")
+            elif line.startswith("\\NewDocumentEnvironment{"):
+                line = line.replace("}{", "*}{")
 
             elif "thmcounter" in line:
                 line = line.replace(" \\thesection.\\arabic{thmcounter}", "")
@@ -34,6 +36,8 @@ class THMBuilder:
         for line in self.format:
             if line.startswith("\\newenvironment{"):
                 line = line.replace("}", "**}")
+            elif line.startswith("\\NewDocumentEnvironment{"):
+                line = line.replace("}{", "**}{")
             line = line.replace("thmcounter", "thmcounternosection")
             line = line.replace(r"\thesection.", "")
             self.built.append(line)
