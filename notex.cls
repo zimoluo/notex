@@ -118,6 +118,7 @@
 
 \newcommand{\bracket}[1]{\left[#1\right]}
 \newcommand{\curlybracket}[1]{\left\{#1\right\}}
+\newcommand{\curb}[1]{\curleybracket{#1}}
 \newcommand{\parenthesis}[1]{\left(#1\right)}
 \newcommand{\paren}[1]{\parenthesis{#1}}
 \newcommand{\vertlines}[1]{\left\lvert#1\right\rvert}
