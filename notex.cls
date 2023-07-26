@@ -112,6 +112,10 @@
   \fi
 }
 
+\newcommand{\forcedisplaymath}{
+    \everymath{\displaystyle}
+}
+
 \newcommand{\bracket}[1]{\left[#1\right]}
 \newcommand{\curlybracket}[1]{\left\{#1\right\}}
 \newcommand{\parenthesis}[1]{\left(#1\right)}
