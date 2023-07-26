@@ -121,6 +121,7 @@
 \newcommand{\parenthesis}[1]{\left(#1\right)}
 \newcommand{\paren}[1]{\parenthesis{#1}}
 \newcommand{\vertlines}[1]{\left\lvert#1\right\rvert}
+\newcommand{\angles}[1]{\left\langle#1\right\rangle}
 \newcommand{\legendre}[2]{\parenthesis{\frac{#1}{#2}}}
 
 \newcommand{\vecdouble}[2]{\displaystyle\begin{bmatrix}#1 \\ #2 \end{bmatrix}}
