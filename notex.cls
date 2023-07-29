@@ -14,6 +14,7 @@
 \RequirePackage{amsmath}
 \RequirePackage{amsthm}
 \RequirePackage{amssymb}
+\RequirePackage{background}
 \RequirePackage{float}
 \RequirePackage{graphicx}
 \RequirePackage{lipsum}
@@ -165,6 +166,15 @@
     contents={\includegraphics{res/rosslogo.pdf}}
   }
 }
+
+\DeclareOption{rosslogo}{
+  \backgroundsetup{
+  scale=2.4,
+  opacity=0.075,
+  angle=0,
+  contents={\includegraphics{res/rosslogo.pdf}}
+}}
+\ProcessOptions\relax
 
 \newenvironment{legacyproof}{\par
   \pushQED{\qed}
