@@ -157,7 +157,7 @@
 \newcommand{\subheadertitle}[1]{\renewcommand{\defaultsubheader}{#1}}
 \newcommand{\subsubheadertitle}[1]{\renewcommand{\defaultsubsubheader}{#1}}
 
-\newcommand{\enablerosslogo}{
+\newcommand{\enablerosslogo}{% Deprecated: Use the option rosslogo when loading NoTeX.
   \RequirePackage{background}
   \backgroundsetup{
     scale=2.4,
