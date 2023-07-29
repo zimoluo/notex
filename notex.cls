@@ -42,6 +42,10 @@
     linktoc=all
 }
 
+\backgroundsetup{
+  contents=
+}
+
 \definecolor{pgreen}{HTML}{047101}
 \definecolor{pred}{HTML}{FF634D}
 \definecolor{pblue}{HTML}{0376BB}
@@ -169,10 +173,10 @@
 
 \DeclareOption{rosslogo}{
   \backgroundsetup{
-  scale=2.4,
-  opacity=0.075,
-  angle=0,
-  contents={\includegraphics{res/rosslogo.pdf}}
+    scale=2.4,
+    opacity=0.075,
+    angle=0,
+    contents={\includegraphics{res/rosslogo.pdf}}
 }}
 \ProcessOptions\relax
 
