@@ -209,7 +209,7 @@
 }
 
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
-\renewcommand{\refname}{\scshape\MakeUppercase{References}}
+\renewcommand{\refname}{\scshape{References}}
 
 \fancypagestyle{notexstyle}{
   \fancyhf{}
@@ -226,7 +226,7 @@
 
 \pagestyle{notexstyle}
 
-\renewcommand{\contentsname}{\normalfont\raggedright\Large\scshape\MakeUppercase{Contents}\vskip 0.4em\hrule height 0.8pt}
+\renewcommand{\contentsname}{\normalfont\raggedright\Large\scshape{Contents}\vskip 0.4em\hrule height 0.8pt}
 
 \titlecontents{section}
   [2.6em]
@@ -292,13 +292,13 @@
 \renewcommand{\thesection}{\Alph{section}}
 \titleformat{\section}
   {\normalfont}
-  {\Large\scshape\MakeUppercase{Appendix \thesection. }}
+  {\Large\scshape{Appendix \thesection. }}
   {0em}
   {\Large\scshape}
   [{\titlerule[0.8pt]}]
 \titleformat{name=\section,numberless}
   {\normalfont}
-  {\Large\scshape\MakeUppercase{{Appendix}.\ }}
+  {\Large\scshape{{Appendix}.\ }}
   {0em}
   {\Large\scshape}
   [{\titlerule[0.8pt]}]
@@ -579,13 +579,6 @@
   {\contentslabel{2.9em}}
   {\hspace*{-2.9em}}
   {\titlerule*[1pc]{.}\contentspage}  
-
-\titleformat{\section}
-  {\normalfont}
-  {\Large\scshape\MakeUppercase{{\defaultheader\ }\arabic{section}.}}
-  {0.4em}
-  {\Large\scshape}
-  [{\titlerule[0.8pt]}]
 
 \titlecontents{subsubsection}
   [5.25em]
