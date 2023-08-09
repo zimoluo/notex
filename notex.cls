@@ -116,6 +116,17 @@
     \everymath{\displaystyle}
 }
 
+\newcommand{\IncludeFile}[1] {
+    \input{Chapter_#1}
+    \newpage
+}
+
+\newcommand{\IncludeFiles}[2] {
+    \foreach \n in {#1,...,#2} {
+        \IncludeFile{\n}
+    }
+}
+
 \newcommand{\bracket}[1]{\left[#1\right]}
 \newcommand{\curlybracket}[1]{\left\{#1\right\}}
 \newcommand{\curb}[1]{\curleybracket{#1}}
