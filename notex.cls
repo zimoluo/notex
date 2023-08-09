@@ -145,8 +145,8 @@
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 
 \newcommand{\lecture}[1]{\gdef\@titlepreset{#1}}
-\newcommand{\notetaker}[1]{\gdef\@notetaker{#1}}
-\renewcommand{\author}[1]{\notetaker{#1}}
+\newcommand{\altauthor}[1]{\gdef\@altauthor{#1}}
+\renewcommand{\author}[1]{\altauthor{#1}}
 
 \newcommand{\defaultheader}{Chapter}
 \newcommand{\defaultsubheader}{Module}
@@ -196,11 +196,55 @@
       {\large\bfseries\MakeUppercase{Lecture {\#\@titlepreset}} \par}
     \fi
     \vskip 0.25em
-    \ifx\@notetaker\undefined
+    \ifx\@altauthor\undefined
       {}
     \else
-      {\large\MakeUppercase{\@notetaker}}
+      {\large\MakeUppercase{\@altauthor}}
     \fi
+    \vskip 0.1em
+    {\let\thefootnote\relax\footnotetext{\textit{Date}: \@date}}
+  \end{center}
+  \par
+  \vspace{0.7em}
+}
+
+\newcommand{\customtitle}[2]{
+  \newpage
+  \null
+  \thispagestyle{plain}
+  \renewcommand{\@altauthor}{#2}
+  \newcommand{\thistitle}{#1}
+  \setcounter{section}{0}
+  \setcounter{thmcounter}{0}
+  \setcounter{thmcounternosection}{0}
+  \vspace{-2.5em}
+  \begin{center}
+    \let\footnote\@date
+    {\large\bfseries\MakeUppercase{#1} \par}
+    \vskip 0.25em
+    {\large\MakeUppercase{#2}}
+    \vskip 0.1em
+    {\let\thefootnote\relax\footnotetext{\textit{Date}: \@date}}
+  \end{center}
+  \par
+  \vspace{0.7em}
+}
+
+\newcommand{\customtitlefancy}[2]{
+  \newpage
+  \null
+  \thispagestyle{plain}
+  \renewcommand{\@altauthor}{#2}
+  \newcommand{\thistitle}{#1}
+  \setcounter{section}{0}
+  \setcounter{thmcounter}{0}
+  \setcounter{thmcounternosection}{0}
+  \vspace{-2.5em}
+  \begin{center}
+    \let\footnote\@date
+    {\large\bfseries\MakeUppercase{Lecture \#{#1}} \par}
+    \vskip 0.25em
+    {\large\MakeUppercase{#2}}
     \vskip 0.1em
     {\let\thefootnote\relax\footnotetext{\textit{Date}: \@date}}
   \end{center}
@@ -220,7 +264,7 @@
       {{\thistitle}}
     \else
       {{Lecture {\#\@titlepreset}}}
-    \fi}}\else {\small\@notetaker}\fi}}}
+    \fi}}\else {\small\@altauthor}\fi}}}
   \setlength{\headheight}{24.5042pt}
 }
 
@@ -520,10 +564,6 @@
 \setlength\parindent{0pt}
 
 \newcommand{\psetnum}[1]{\gdef\@titlepreset{#1}}
-\newcommand{\solver}[1]{\gdef\@solver{#1}}
-\renewcommand{\author}[1]{\solver{#1}}
-\let\notetaker\relax
-\def\@notetaker{}
 
 \let\subheadertitle\relax
 \let\subsubheadertitle\relax
@@ -540,10 +580,10 @@
       {\large\bfseries\MakeUppercase{Problem Set {\#\@titlepreset}} \par}
     \fi
     \vskip 0.25em
-    \ifx\@solver\undefined
+    \ifx\@altauthor\undefined
       {}
     \else
-      {\large\MakeUppercase{\@solver}}
+      {\large\MakeUppercase{\@altauthor}}
     \fi
     \vskip 0.1em
     {\let\thefootnote\relax\footnotetext{\textit{Date}: \@date}}
@@ -551,6 +591,29 @@
   \par
   \vspace{0.7em}
 }
+
+\renewcommand{\customtitlefancy}[2]{
+  \newpage
+  \null
+  \thispagestyle{plain}
+  \renewcommand{\@altauthor}{#2}
+  \newcommand{\thistitle}{#1}
+  \setcounter{section}{0}
+  \setcounter{thmcounter}{0}
+  \setcounter{thmcounternosection}{0}
+  \vspace{-2.5em}
+  \begin{center}
+    \let\footnote\@date
+    {\large\bfseries\MakeUppercase{Problem Set \#{#1}} \par}
+    \vskip 0.25em
+    {\large\MakeUppercase{#2}}
+    \vskip 0.1em
+    {\let\thefootnote\relax\footnotetext{\textit{Date}: \@date}}
+  \end{center}
+  \par
+  \vspace{0.7em}
+}
+
 
 \fancypagestyle{rosstexstyle}{
   \fancyhf{}
@@ -561,7 +624,7 @@
       {\small{\thistitle}}
     \else
       {\small{Problem Set {\#\@titlepreset}}}
-    \fi}\else {\small\@solver}\fi}}}
+    \fi}\else {\small\@altauthor}\fi}}}
 
   \setlength{\headheight}{24.5042pt}
 }
