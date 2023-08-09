@@ -178,6 +178,14 @@
   }
 }
 
+\newcommand{\changecustomtitle}[1]{
+  \ifdefined\thistitle
+    \renewcommand{\thistitle}{#1}
+  \else
+    \newcommand{\thistitle}{#1}
+  \fi
+}
+
 \newenvironment{legacyproof}{\par
   \pushQED{\qed}
   \normalfont \topsep6\p@\@plus6\p@\relax
@@ -225,7 +233,7 @@
   \null
   \thispagestyle{plain}
   \renewcommand{\@altauthor}{#2}
-  \newcommand{\thistitle}{#1}
+  \changecustomtitle{#1}
   \setcounter{section}{0}
   \setcounter{thmcounter}{0}
   \setcounter{thmcounternosection}{0}
@@ -247,7 +255,7 @@
   \null
   \thispagestyle{plain}
   \renewcommand{\@altauthor}{#2}
-  \newcommand{\thistitle}{#1}
+  \changecustomtitle{#1}
   \setcounter{section}{0}
   \setcounter{thmcounter}{0}
   \setcounter{thmcounternosection}{0}
@@ -609,7 +617,7 @@
   \null
   \thispagestyle{plain}
   \renewcommand{\@altauthor}{#2}
-  \newcommand{\thistitle}{#1}
+  \changecustomtitle{#1}
   \setcounter{section}{0}
   \setcounter{thmcounter}{0}
   \setcounter{thmcounternosection}{0}
