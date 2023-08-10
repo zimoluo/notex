@@ -93,7 +93,15 @@ Try \NoTeX and \RossTeX and more!
     \lipsum[16]
 \end{example}
 
-\cite{placeholderref}
+\begin{custom}{A Custom Environment}{psilver}
+    This is a custom environment
+\end{custom}
+
+\begin{custom***}{A Custom Environment}{psilver}{$\pi$}
+    This is a custom environment with a counter slot
+\end{custom***}
+
+This is a citation \cite{placeholderref}.
 
 \bibliographystyle{unsrt}
 \bibliography{reference}

@@ -51,7 +51,7 @@
 \definecolor{pyellow}{HTML}{F7BA00}
 \definecolor{psilver}{HTML}{D5D5D5}
 \definecolor{plightgray}{HTML}{929292}
-\definecolor{pgray}{HTML}{929292}
+\definecolor{pgray}{HTML}{717171}
 \definecolor{pblack}{HTML}{000000}
 \definecolor{pwhite}{HTML}{FFFFFF}
 \definecolor{porange}{HTML}{FF9400}
