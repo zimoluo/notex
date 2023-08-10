@@ -80,8 +80,6 @@
 
 \title{\@ifundefined{title}{}{\@title}}
 
-\def\title#1{\gdef\@title{#1}\gdef\thistitle{#1}}
-
 \DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\ord}{ord}
 \DeclareMathOperator{\Ker}{ker}
@@ -106,10 +104,10 @@
 
 \providecommand{\forcedisfrac}{
   \ifdefined\oldfrac\relax
-    \renewcommand{\frac}[2]{\displaystyle\oldfrac{##1}{##2}}%
+    \renewcommand{\frac}[2]{\displaystyle\oldfrac{##1}{##2}}
   \else
     \let\oldfrac\frac
-    \renewcommand{\frac}[2]{\displaystyle\oldfrac{##1}{##2}}%
+    \renewcommand{\frac}[2]{\displaystyle\oldfrac{##1}{##2}}
   \fi
 }
 
@@ -142,6 +140,8 @@
 \newcommand{\vectriple}[3]{\displaystyle\begin{bmatrix}#1 \\ #2 \\ #3 \end{bmatrix}}
 \newcommand{\vect}[3]{\vectriple{#1}{#2}{#3}}
 
+\newcommand{\eps}{\varepsilon}
+
 \newcommand{\NoTeX}{N\kern-.15em\raisebox{.4ex}{\scalebox{0.84}{O}}\kern-.25em\TeX\kern.25em}
 \newcommand{\RossTeX}{\tikz[baseline=(R.base)]{
     \node[draw, circle, inner sep=0pt, minimum size=1.8em] at (0em, 0) (circle) {};
@@ -156,7 +156,8 @@
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 
-\newcommand{\lecture}[1]{\gdef\@titlepreset{#1}}
+\newcommand{\titlekeyword}[1]{Lecture}
+\newcommand{\lecture}[1]{\title{\titlekeyword\ \##1}}
 \newcommand{\altauthor}[1]{\gdef\@altauthor{#1}}
 \renewcommand{\author}[1]{\altauthor{#1}}
 
@@ -168,6 +169,11 @@
 \newcommand{\subheadertitle}[1]{\renewcommand{\defaultsubheader}{#1}}
 \newcommand{\subsubheadertitle}[1]{\renewcommand{\defaultsubsubheader}{#1}}
 
+\newcommand{\thistitle}{}
+\renewcommand{\title}[1]{\renewcommand{\thistitle}{#1}}
+
+\gdef\@title{\thistitle}
+
 \newcommand{\enablerosslogo}{
   \RequirePackage{background}
   \backgroundsetup{
@@ -176,14 +182,6 @@
     angle=0,
     contents={\includegraphics{res/rosslogo.pdf}}
   }
-}
-
-\newcommand{\changecustomtitle}[1]{
-  \ifdefined\thistitle
-    \renewcommand{\thistitle}{#1}
-  \else
-    \newcommand{\thistitle}{#1}
-  \fi
 }
 
 \newenvironment{legacyproof}{\par
@@ -205,16 +203,13 @@
 {\hfill \qedsymbol\end{tcolorbox}\par}
 
 \renewcommand{\@maketitle}{
+  \gdef\@title{\thistitle}
   \newpage
   \null
   \vspace{-2.5em}
   \begin{center}
     \let\footnote\@date
-    \ifx\@titlepreset\undefined
-      {\large\bfseries\MakeUppercase{\@title} \par}
-    \else
-      {\large\bfseries\MakeUppercase{Lecture {\#\@titlepreset}} \par}
-    \fi
+    {\large\bfseries\MakeUppercase{\thistitle} \par}
     \vskip 0.25em
     \ifx\@altauthor\undefined
       {}
@@ -233,14 +228,14 @@
   \null
   \thispagestyle{plain}
   \renewcommand{\@altauthor}{#2}
-  \changecustomtitle{#1}
+  \renewcommand{\thistitle}{#1}
   \setcounter{section}{0}
   \setcounter{thmcounter}{0}
   \setcounter{thmcounternosection}{0}
   \vspace{-2.5em}
   \begin{center}
     \let\footnote\@date
-    {\large\bfseries\MakeUppercase{#1} \par}
+    {\large\bfseries\MakeUppercase{\thistitle} \par}
     \vskip 0.25em
     {\large\MakeUppercase{#2}}
     \vskip 0.1em
@@ -255,14 +250,14 @@
   \null
   \thispagestyle{plain}
   \renewcommand{\@altauthor}{#2}
-  \changecustomtitle{#1}
+  \renewcommand{\thistitle}{\titlekeyword\ \##1}
   \setcounter{section}{0}
   \setcounter{thmcounter}{0}
   \setcounter{thmcounternosection}{0}
   \vspace{-2.5em}
   \begin{center}
     \let\footnote\@date
-    {\large\bfseries\MakeUppercase{Lecture \#{#1}} \par}
+    {\large\bfseries\MakeUppercase{\thistitle} \par}
     \vskip 0.25em
     {\large\MakeUppercase{#2}}
     \vskip 0.1em
@@ -279,12 +274,9 @@
   \fancyhf{}
   \renewcommand{\headrulewidth}{0pt}
   \fancyhead[LE,RO]{\scshape\small\thepage}
-  \fancyhead[LO,RE]{\scshape\small\leftmark}
-  \fancyhead[C]{\scshape\small {{\scshape\small\ifodd\value{page} {\scshape\small{\ifx\@titlepreset\undefined
-      {{\thistitle}}
-    \else
-      {{Lecture {\#\@titlepreset}}}
-    \fi}}\else {\small\@altauthor}\fi}}}
+  \fancyhead[LO]{\begin{tabular}{p{11em}}\raggedright\scshape\small\leftmark\end{tabular}}
+  \fancyhead[RE]{\begin{tabular}{p{11em}}\raggedleft\scshape\small\leftmark\end{tabular}}
+  \fancyhead[C]{\begin{tabular}{p{18em}}\centering\scshape\small {{\scshape\small\ifodd\value{page} {\scshape\small{{\thistitle}}}\else {\small\@altauthor}\fi}}\end{tabular}}
   \setlength{\headheight}{24.5042pt}
 }
 
@@ -372,6 +364,7 @@
 \newcounter{thmcounternosection}
 
 \renewcommand{\thethmcounter}{\thesection.\arabic{thmcounter}}
+\renewcommand{\thethmcounternosection}{\arabic{thmcounternosection}}
 
 %BEGIN THM FORMAT
 
@@ -583,68 +576,18 @@
 \setstretch{1.4}
 \setlength\parindent{0pt}
 
-\newcommand{\psetnum}[1]{\gdef\@titlepreset{#1}}
+\renewcommand{\titlekeyword}{Problem Set}
+\newcommand{\psetnum}[1]{\title{\titlekeyword\ \##1}}
 
 \let\subheadertitle\relax
 \let\subsubheadertitle\relax
-
-\renewcommand{\@maketitle}{
-  \newpage
-  \null
-  \vspace{-2.5em}
-  \begin{center}
-    \let\footnote\@date
-    \ifx\@titlepreset\undefined
-      {\large\bfseries\MakeUppercase{\@title} \par}
-    \else
-      {\large\bfseries\MakeUppercase{Problem Set {\#\@titlepreset}} \par}
-    \fi
-    \vskip 0.25em
-    \ifx\@altauthor\undefined
-      {}
-    \else
-      {\large\MakeUppercase{\@altauthor}}
-    \fi
-    \vskip 0.1em
-    {\let\thefootnote\relax\footnotetext{\textit{Date}: \@date}}
-  \end{center}
-  \par
-  \vspace{0.7em}
-}
-
-\renewcommand{\customtitlefancy}[2]{
-  \newpage
-  \null
-  \thispagestyle{plain}
-  \renewcommand{\@altauthor}{#2}
-  \changecustomtitle{#1}
-  \setcounter{section}{0}
-  \setcounter{thmcounter}{0}
-  \setcounter{thmcounternosection}{0}
-  \vspace{-2.5em}
-  \begin{center}
-    \let\footnote\@date
-    {\large\bfseries\MakeUppercase{Problem Set \#{#1}} \par}
-    \vskip 0.25em
-    {\large\MakeUppercase{#2}}
-    \vskip 0.1em
-    {\let\thefootnote\relax\footnotetext{\textit{Date}: \@date}}
-  \end{center}
-  \par
-  \vspace{0.7em}
-}
-
 
 \fancypagestyle{rosstexstyle}{
   \fancyhf{}
   \renewcommand{\headrulewidth}{0pt}
   \fancyhead[LE,RO]{\scshape\small\thepage}
   \fancyhead[LO,RE]{\scshape\small\@date}
-  \fancyhead[C]{\scshape\small {{\scshape\small\ifodd\value{page} {\ifx\@titlepreset\undefined
-      {\small{\thistitle}}
-    \else
-      {\small{Problem Set {\#\@titlepreset}}}
-    \fi}\else {\small\@altauthor}\fi}}}
+  \fancyhead[C]{\begin{tabular}{p{18em}}\centering\scshape\small {{\scshape\small\ifodd\value{page} {\scshape\small{{\thistitle}}}\else {\small\@altauthor}\fi}}\end{tabular}}
 
   \setlength{\headheight}{24.5042pt}
 }
@@ -657,10 +600,10 @@
 \renewcommand{\thesubsubsection}{\thesubsection(\textit{\roman{subsubsection}})}
 
 \titlecontents{subsection}
-  [3.5em]
-  {}
-  {\contentslabel{2.9em}}
-  {\hspace*{-2.9em}}
+[3.5em]
+{}
+{\contentslabel{2.9em}}
+{\hspace*{-2.9em}}
   {\titlerule*[1pc]{.}\contentspage}  
 
 \titlecontents{subsubsection}
