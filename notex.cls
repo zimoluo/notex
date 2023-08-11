@@ -30,6 +30,7 @@
 \RequirePackage{xcolor}
 \RequirePackage{xparse}
 \RequirePackage{etoolbox}
+\RequirePackage{calc}
 \RequirePackage{thmtools}
 \RequirePackage[most]{tcolorbox}
 \RequirePackage{hyperref}
@@ -156,7 +157,7 @@
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 
-\newcommand{\titlekeyword}[1]{Lecture}
+\newcommand{\titlekeyword}{Lecture}
 \newcommand{\lecture}[1]{\title{\titlekeyword\ \##1}}
 \newcommand{\altauthor}[1]{\gdef\@altauthor{#1}}
 \renewcommand{\author}[1]{\altauthor{#1}}
@@ -168,6 +169,11 @@
 \newcommand{\headertitle}[1]{\renewcommand{\defaultheader}{#1}}
 \newcommand{\subheadertitle}[1]{\renewcommand{\defaultsubheader}{#1}}
 \newcommand{\subsubheadertitle}[1]{\renewcommand{\defaultsubsubheader}{#1}}
+
+\newlength{\headerlengthmiddle}
+\setlength{\headerlengthmiddle}{(\paperwidth - \oddsidemargin - \evensidemargin)/3}
+\newlength{\headerlengthside}
+\setlength{\headerlengthside}{(\paperwidth - \oddsidemargin - \evensidemargin)/5}
 
 \newcommand{\thistitle}{}
 \renewcommand{\title}[1]{\renewcommand{\thistitle}{#1}}
@@ -223,34 +229,22 @@
   \vspace{0.7em}
 }
 
-\newcommand{\customtitle}[2]{
+\NewDocumentCommand{\customtitle}{mmmo}{
   \newpage
   \null
+  \addtocontents{toc}{\protect\hspace*{-1.6em}\protect\rule{\textwidth}{0.5pt}}
   \thispagestyle{plain}
-  \renewcommand{\@altauthor}{#2}
-  \renewcommand{\thistitle}{#1}
-  \setcounter{section}{0}
-  \setcounter{thmcounter}{0}
-  \setcounter{thmcounternosection}{0}
-  \vspace{-2.5em}
-  \begin{center}
-    \let\footnote\@date
-    {\large\bfseries\MakeUppercase{\thistitle} \par}
-    \vskip 0.25em
-    {\large\MakeUppercase{#2}}
-    \vskip 0.1em
-    {\let\thefootnote\relax\footnotetext{\textit{Date}: \@date}}
-  \end{center}
-  \par
-  \vspace{0.7em}
-}
-
-\newcommand{\customtitlefancy}[2]{
-  \newpage
-  \null
-  \thispagestyle{plain}
-  \renewcommand{\@altauthor}{#2}
-  \renewcommand{\thistitle}{\titlekeyword\ \##1}
+  \regularsection
+  \ifx\relax#3\relax
+  \else
+    \gdef\@date{#3}
+  \fi
+  \gdef\@altauthor{#2}
+  \ifx f#4
+    \renewcommand{\thistitle}{\titlekeyword\ \##1}
+  \else
+    \renewcommand{\thistitle}{#1}
+  \fi
   \setcounter{section}{0}
   \setcounter{thmcounter}{0}
   \setcounter{thmcounternosection}{0}
@@ -274,9 +268,9 @@
   \fancyhf{}
   \renewcommand{\headrulewidth}{0pt}
   \fancyhead[LE,RO]{\scshape\small\thepage}
-  \fancyhead[LO]{\begin{tabular}{p{11em}}\raggedright\scshape\small\leftmark\end{tabular}}
-  \fancyhead[RE]{\begin{tabular}{p{11em}}\raggedleft\scshape\small\leftmark\end{tabular}}
-  \fancyhead[C]{\begin{tabular}{p{18em}}\centering\scshape\small {{\scshape\small\ifodd\value{page} {\scshape\small{{\thistitle}}}\else {\small\@altauthor}\fi}}\end{tabular}}
+  \fancyhead[LO]{\begin{tabular}{p{\headerlengthside}}\raggedright\scshape\small\leftmark\end{tabular}}
+  \fancyhead[RE]{\begin{tabular}{p{\headerlengthside}}\raggedleft\scshape\small\leftmark\end{tabular}}
+  \fancyhead[C]{\begin{tabular}{p{\headerlengthmiddle}}\centering\scshape\small {{\scshape\small\ifodd\value{page} {\scshape\small{{\thistitle}}}\else {\small\@altauthor}\fi}}\end{tabular}}
   \setlength{\headheight}{24.5042pt}
 }
 
@@ -305,19 +299,25 @@
   {\hspace*{-3.3em}}
   {\titlerule*[1pc]{.}\contentspage}  
 
-\titleformat{\section}
-  {\normalfont}
-  {\Large\scshape{{\defaultheader\ }\arabic{section}.}}
-  {0.4em}
-  {\Large\scshape}
-  [{\titlerule[0.8pt]}]
+\newcommand{\regularsection}{
+  \renewcommand{\thesection}{\arabic{section}}
 
-\titleformat{name=\section,numberless}
-  {\normalfont}
-  {\Large\scshape}
-  {0em}
-  {\Large\scshape}
-  [{\titlerule[0.8pt]}]
+  \titleformat{\section}
+    {\normalfont}
+    {\Large\scshape{{\defaultheader\ }\arabic{section}.}}
+    {0.4em}
+    {\Large\scshape}
+    [{\titlerule[0.8pt]}]
+
+  \titleformat{name=\section,numberless}
+    {\normalfont}
+    {\Large\scshape}
+    {0em}
+    {\Large\scshape}
+    [{\titlerule[0.8pt]}]
+}
+
+\regularsection
 
 \titleformat{\subsection}
   {\large\normalfont\bfseries}
@@ -587,7 +587,7 @@
   \renewcommand{\headrulewidth}{0pt}
   \fancyhead[LE,RO]{\scshape\small\thepage}
   \fancyhead[LO,RE]{\scshape\small\@date}
-  \fancyhead[C]{\begin{tabular}{p{18em}}\centering\scshape\small {{\scshape\small\ifodd\value{page} {\scshape\small{{\thistitle}}}\else {\small\@altauthor}\fi}}\end{tabular}}
+  \fancyhead[C]{\begin{tabular}{p{\headerlengthmiddle}}\centering\scshape\small {{\scshape\small\ifodd\value{page} {\scshape\small{{\thistitle}}}\else {\small\@altauthor}\fi}}\end{tabular}}
 
   \setlength{\headheight}{24.5042pt}
 }
