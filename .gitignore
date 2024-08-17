@@ -44,9 +44,7 @@ test.tex
 ## Build tool auxiliary files:
 *.fdb_latexmk
 *.synctex
-*.synctex(busy)
 *.synctex.gz
-*.synctex.gz(busy)
 *.pdfsync
 *.rubbercache
 rubber.cache
