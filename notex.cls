@@ -36,11 +36,11 @@
 \RequirePackage{hyperref}
 
 \hypersetup{
-    colorlinks=true,
-    linkcolor=black,
-    urlcolor=black,
-    citecolor=black,
-    linktoc=all
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=black,
+  citecolor=black,
+  linktoc=all
 }
 
 \definecolor{pgreen}{HTML}{047101}
@@ -113,17 +113,17 @@
 }
 
 \newcommand{\forcedisplaymath}{
-    \everymath{\displaystyle}
+  \everymath{\displaystyle}
 }
 
 \newcommand{\IncludeFile}[1] {
-    \input{Chapter_#1}
-    \newpage
+  \input{Chapter_#1}
+  \newpage
 }
 
 \newcommand{\IncludeFiles}[2] {
-    \foreach \n in {#1,...,#2} {
-        \IncludeFile{\n}
+  \foreach \n in {#1,...,#2} {
+      \IncludeFile{\n}
     }
 }
 
@@ -195,8 +195,8 @@
   \normalfont \topsep6\p@\@plus6\p@\relax
   \trivlist
   \item[\hskip\labelsep
-        \itshape
-    Proof\@addpunct{.}]\ignorespaces
+              \itshape
+              Proof\@addpunct{.}]\ignorespaces
 }{
   \popQED\endtrivlist\@endpefalse
 }
@@ -206,7 +206,7 @@
 
 \newenvironment{proof}[1][]
 {\par\begin{tcolorbox}[title={\ifx\\#1\\\textit{Proof.}\else\textit{Proof:} #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pshadegreen!05, colframe=pshadegreen!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\hfill \qedsymbol\end{tcolorbox}\par}
+    {\hfill \qedsymbol\end{tcolorbox}\par}
 
 \renewcommand{\@maketitle}{
   \gdef\@title{\thistitle}
@@ -219,11 +219,11 @@
     \vskip 0.25em
     \ifx\@altauthor\undefined
       {}
-    \else
+      \else
       {\large\MakeUppercase{\@altauthor}}
     \fi
     \vskip 0.1em
-    {\let\thefootnote\relax\footnotetext{\textit{Date}: \@date}}
+      {\let\thefootnote\relax\footnotetext{\textit{Date}: \@date}}
   \end{center}
   \par
   \vspace{0.7em}
@@ -253,9 +253,9 @@
     \let\footnote\@date
     {\large\bfseries\MakeUppercase{\thistitle} \par}
     \vskip 0.25em
-    {\large\MakeUppercase{#2}}
+      {\large\MakeUppercase{#2}}
     \vskip 0.1em
-    {\let\thefootnote\relax\footnotetext{\textit{Date}: \@date}}
+      {\let\thefootnote\relax\footnotetext{\textit{Date}: \@date}}
   \end{center}
   \par
   \vspace{0.7em}
@@ -279,80 +279,80 @@
 \renewcommand{\contentsname}{\normalfont\raggedright\Large\scshape{Contents}\vskip 0.4em\hrule height 0.8pt}
 
 \titlecontents{section}
-  [2.6em]
-  {}
-  {\large\contentslabel{2.3em}}
-  {\hspace*{-2.3em}}
-  {\titlerule*[1pc]{.}\contentspage}  
+[2.6em]
+{}
+{\large\contentslabel{2.3em}}
+{\hspace*{-2.3em}}
+{\titlerule*[1pc]{.}\contentspage}
 
 \titlecontents{subsection}
-  [3.5em]
-  {}
-  {\contentslabel{2.65em}}
-  {\hspace*{-2.65em}}
-  {\titlerule*[1pc]{.}\contentspage}  
+[3.5em]
+{}
+{\contentslabel{2.65em}}
+{\hspace*{-2.65em}}
+{\titlerule*[1pc]{.}\contentspage}
 
 \titlecontents{subsubsection}
-  [4.75em]
-  {}
-  {\contentslabel{3.3em}}
-  {\hspace*{-3.3em}}
-  {\titlerule*[1pc]{.}\contentspage}  
+[4.75em]
+{}
+{\contentslabel{3.3em}}
+{\hspace*{-3.3em}}
+{\titlerule*[1pc]{.}\contentspage}
 
 \newcommand{\regularsection}{
   \renewcommand{\thesection}{\arabic{section}}
 
   \titleformat{\section}
-    {\normalfont}
-    {\Large\scshape{{\defaultheader\ }\arabic{section}.}}
-    {0.4em}
-    {\Large\scshape}
-    [{\titlerule[0.8pt]}]
+  {\normalfont}
+  {\Large\scshape{{\defaultheader\ }\arabic{section}.}}
+  {0.4em}
+  {\Large\scshape}
+  [{\titlerule[0.8pt]}]
 
   \titleformat{name=\section,numberless}
-    {\normalfont}
-    {\Large\scshape}
-    {0em}
-    {\Large\scshape}
-    [{\titlerule[0.8pt]}]
+  {\normalfont}
+  {\Large\scshape}
+  {0em}
+  {\Large\scshape}
+  [{\titlerule[0.8pt]}]
 }
 
 \regularsection
 
 \titleformat{\subsection}
-  {\large\normalfont\bfseries}
-  {\defaultsubheader\ \textbf{\thesubsection}.\ }
-  {0em}
-  {}
-  []
+{\large\normalfont\bfseries}
+{\defaultsubheader\ \textbf{\thesubsection}.\ }
+{0em}
+{}
+[]
 
 \titlespacing{\subsection}
-  {0pt}
-  {0.5ex plus 0.5ex minus 0.2ex}
-  {0.5em}
+{0pt}
+{0.5ex plus 0.5ex minus 0.2ex}
+{0.5em}
 
 \titleformat{\subsubsection}
-  {\large\normalfont}
-  {{\defaultsubsubheader\ \thesubsubsection}.\ }
-  {0em}
-  {}
-  []
+{\large\normalfont}
+{{\defaultsubsubheader\ \thesubsubsection}.\ }
+{0em}
+{}
+[]
 
 \titlespacing{\subsubsection}
-  {0pt}
-  {0.5ex plus 0.5ex minus 0.2ex}
-  {0.5em}
+{0pt}
+{0.5ex plus 0.5ex minus 0.2ex}
+{0.5em}
 
 \renewcommand{\appendix}{
-\setcounter{section}{0}
-\renewcommand{\thesection}{\Alph{section}}
-\titleformat{\section}
+  \setcounter{section}{0}
+  \renewcommand{\thesection}{\Alph{section}}
+  \titleformat{\section}
   {\normalfont}
   {\Large\scshape{Appendix \thesection. }}
   {0em}
   {\Large\scshape}
   [{\titlerule[0.8pt]}]
-\titleformat{name=\section,numberless}
+  \titleformat{name=\section,numberless}
   {\normalfont}
   {\Large\scshape{{Appendix}.\ }}
   {0em}
@@ -370,67 +370,67 @@
 
 \newenvironment{theorem}[1][]
 {\par\refstepcounter{thmcounter}\begin{tcolorbox}[title={Theorem \thesection.\arabic{thmcounter}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=plightred!07, colframe=plightred!28, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{lemma}[1][]
 {\par\refstepcounter{thmcounter}\begin{tcolorbox}[title={Lemma \thesection.\arabic{thmcounter}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=porange!04, colframe=porange!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{corollary}[1][]
 {\par\refstepcounter{thmcounter}\begin{tcolorbox}[title={Corollary \thesection.\arabic{thmcounter}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pgold!04, colframe=pgold!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{proposition}[1][]
 {\par\refstepcounter{thmcounter}\begin{tcolorbox}[title={Proposition \thesection.\arabic{thmcounter}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=plavender!08, colframe=plavender!35, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{statement}[1][]
 {\par\refstepcounter{thmcounter}\begin{tcolorbox}[title={Statement \thesection.\arabic{thmcounter}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pmagenta!04, colframe=pmagenta!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{conjecture}[1][]
 {\par\refstepcounter{thmcounter}\begin{tcolorbox}[title={Conjecture \thesection.\arabic{thmcounter}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pdarkred!04, colframe=pdarkred!15, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{definition}[1][]
 {\par\refstepcounter{thmcounter}\begin{tcolorbox}[title={Definition \thesection.\arabic{thmcounter}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=plightblue!16, colframe=plightblue!45, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{problem}[1][]
 {\par\refstepcounter{thmcounter}\begin{tcolorbox}[title={Problem \thesection.\arabic{thmcounter}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=plightgreen!18, colframe=plightgreen!65, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{example}[1][]
 {\par\refstepcounter{thmcounter}\begin{tcolorbox}[title={Example \thesection.\arabic{thmcounter}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pdustyellow!06, colframe=pdustyellow!18, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{solution}[1][]
 {\par\refstepcounter{thmcounter}\begin{tcolorbox}[title={Solution \thesection.\arabic{thmcounter}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pdarkblue!03, colframe=pdarkblue!14, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{remark}[1][]
 {\par\refstepcounter{thmcounter}\begin{tcolorbox}[title={Remark \thesection.\arabic{thmcounter}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pyellowgreen!08, colframe=pyellowgreen!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{claim}[1][]
 {\par\refstepcounter{thmcounter}\begin{tcolorbox}[title={Claim \thesection.\arabic{thmcounter}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pviolet!06, colframe=pviolet!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{exercise}[1][]
 {\par\refstepcounter{thmcounter}\begin{tcolorbox}[title={Exercise \thesection.\arabic{thmcounter}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pdarkskin!07, colframe=pdarkskin!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{question}[1][]
 {\par\refstepcounter{thmcounter}\begin{tcolorbox}[title={Question \thesection.\arabic{thmcounter}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pbluegreen!08, colframe=pbluegreen!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{fact}[1][]
 {\par\refstepcounter{thmcounter}\begin{tcolorbox}[title={Fact \thesection.\arabic{thmcounter}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pvioletred!08, colframe=pvioletred!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \NewDocumentEnvironment{custom}{mmo}
 {\par\refstepcounter{thmcounter}\begin{tcolorbox}[title={#1 \thesection.\arabic{thmcounter}\IfNoValueTF{#3}{}{: #3}},nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=#2!08,colframe=#2!25,coltitle=black,fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 %END THM FORMAT
 
@@ -438,196 +438,196 @@
 
 \newenvironment{theorem*}[1][]
 {\par\begin{tcolorbox}[title={Theorem\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=plightred!07, colframe=plightred!28, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{lemma*}[1][]
 {\par\begin{tcolorbox}[title={Lemma\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=porange!04, colframe=porange!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{corollary*}[1][]
 {\par\begin{tcolorbox}[title={Corollary\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pgold!04, colframe=pgold!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{proposition*}[1][]
 {\par\begin{tcolorbox}[title={Proposition\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=plavender!08, colframe=plavender!35, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{statement*}[1][]
 {\par\begin{tcolorbox}[title={Statement\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pmagenta!04, colframe=pmagenta!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{conjecture*}[1][]
 {\par\begin{tcolorbox}[title={Conjecture\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pdarkred!04, colframe=pdarkred!15, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{definition*}[1][]
 {\par\begin{tcolorbox}[title={Definition\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=plightblue!16, colframe=plightblue!45, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{problem*}[1][]
 {\par\begin{tcolorbox}[title={Problem\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=plightgreen!18, colframe=plightgreen!65, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{example*}[1][]
 {\par\begin{tcolorbox}[title={Example\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pdustyellow!06, colframe=pdustyellow!18, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{solution*}[1][]
 {\par\begin{tcolorbox}[title={Solution\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pdarkblue!03, colframe=pdarkblue!14, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{remark*}[1][]
 {\par\begin{tcolorbox}[title={Remark\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pyellowgreen!08, colframe=pyellowgreen!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{claim*}[1][]
 {\par\begin{tcolorbox}[title={Claim\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pviolet!06, colframe=pviolet!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{exercise*}[1][]
 {\par\begin{tcolorbox}[title={Exercise\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pdarkskin!07, colframe=pdarkskin!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{question*}[1][]
 {\par\begin{tcolorbox}[title={Question\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pbluegreen!08, colframe=pbluegreen!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{fact*}[1][]
 {\par\begin{tcolorbox}[title={Fact\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pvioletred!08, colframe=pvioletred!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \NewDocumentEnvironment{custom*}{mmo}
 {\par\begin{tcolorbox}[title={#1\IfNoValueTF{#3}{}{: #3}},nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=#2!08,colframe=#2!25,coltitle=black,fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 
 \newenvironment{theorem**}[1][]
 {\par\refstepcounter{thmcounternosection}\begin{tcolorbox}[title={Theorem \arabic{thmcounternosection}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=plightred!07, colframe=plightred!28, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{lemma**}[1][]
 {\par\refstepcounter{thmcounternosection}\begin{tcolorbox}[title={Lemma \arabic{thmcounternosection}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=porange!04, colframe=porange!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{corollary**}[1][]
 {\par\refstepcounter{thmcounternosection}\begin{tcolorbox}[title={Corollary \arabic{thmcounternosection}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pgold!04, colframe=pgold!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{proposition**}[1][]
 {\par\refstepcounter{thmcounternosection}\begin{tcolorbox}[title={Proposition \arabic{thmcounternosection}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=plavender!08, colframe=plavender!35, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{statement**}[1][]
 {\par\refstepcounter{thmcounternosection}\begin{tcolorbox}[title={Statement \arabic{thmcounternosection}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pmagenta!04, colframe=pmagenta!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{conjecture**}[1][]
 {\par\refstepcounter{thmcounternosection}\begin{tcolorbox}[title={Conjecture \arabic{thmcounternosection}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pdarkred!04, colframe=pdarkred!15, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{definition**}[1][]
 {\par\refstepcounter{thmcounternosection}\begin{tcolorbox}[title={Definition \arabic{thmcounternosection}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=plightblue!16, colframe=plightblue!45, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{problem**}[1][]
 {\par\refstepcounter{thmcounternosection}\begin{tcolorbox}[title={Problem \arabic{thmcounternosection}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=plightgreen!18, colframe=plightgreen!65, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{example**}[1][]
 {\par\refstepcounter{thmcounternosection}\begin{tcolorbox}[title={Example \arabic{thmcounternosection}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pdustyellow!06, colframe=pdustyellow!18, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{solution**}[1][]
 {\par\refstepcounter{thmcounternosection}\begin{tcolorbox}[title={Solution \arabic{thmcounternosection}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pdarkblue!03, colframe=pdarkblue!14, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{remark**}[1][]
 {\par\refstepcounter{thmcounternosection}\begin{tcolorbox}[title={Remark \arabic{thmcounternosection}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pyellowgreen!08, colframe=pyellowgreen!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{claim**}[1][]
 {\par\refstepcounter{thmcounternosection}\begin{tcolorbox}[title={Claim \arabic{thmcounternosection}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pviolet!06, colframe=pviolet!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{exercise**}[1][]
 {\par\refstepcounter{thmcounternosection}\begin{tcolorbox}[title={Exercise \arabic{thmcounternosection}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pdarkskin!07, colframe=pdarkskin!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{question**}[1][]
 {\par\refstepcounter{thmcounternosection}\begin{tcolorbox}[title={Question \arabic{thmcounternosection}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pbluegreen!08, colframe=pbluegreen!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \newenvironment{fact**}[1][]
 {\par\refstepcounter{thmcounternosection}\begin{tcolorbox}[title={Fact \arabic{thmcounternosection}\ifx\\#1\\\else: #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=pvioletred!08, colframe=pvioletred!25, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \NewDocumentEnvironment{custom**}{mmo}
 {\par\refstepcounter{thmcounternosection}\begin{tcolorbox}[title={#1 \arabic{thmcounternosection}\IfNoValueTF{#3}{}{: #3}},nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=#2!08,colframe=#2!25,coltitle=black,fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 %END THM BUILD
 
 \NewDocumentEnvironment{custom***}{mmmo}
 {\par\begin{tcolorbox}[title={#1 #3\IfNoValueTF{#4}{}{: #4}}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=#2!08,colframe=#2!25,coltitle=black,fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
-{\end{tcolorbox}\par}
+    {\end{tcolorbox}\par}
 
 \ifrosstex
 
-\setstretch{1.4}
-\setlength\parindent{0pt}
+  \setstretch{1.4}
+  \setlength\parindent{0pt}
 
-\renewcommand{\titlekeyword}{Problem Set}
-\newcommand{\psetnum}[1]{\title{\titlekeyword\ \##1}}
+  \renewcommand{\titlekeyword}{Problem Set}
+  \newcommand{\psetnum}[1]{\title{\titlekeyword\ \##1}}
 
-\let\subheadertitle\relax
-\let\subsubheadertitle\relax
+  \let\subheadertitle\relax
+  \let\subsubheadertitle\relax
 
-\fancypagestyle{rosstexstyle}{
-  \fancyhf{}
-  \renewcommand{\headrulewidth}{0pt}
-  \fancyhead[LE,RO]{\scshape\small\thepage}
-  \fancyhead[LO,RE]{\scshape\small\@date}
-  \fancyhead[C]{\begin{tabular}{p{\headerlengthmiddle}}\centering\scshape\small {{\scshape\small\ifodd\value{page} {\scshape\small{{\thistitle}}}\else {\small\@altauthor}\fi}}\end{tabular}}
+  \fancypagestyle{rosstexstyle}{
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyhead[LE,RO]{\scshape\small\thepage}
+    \fancyhead[LO,RE]{\scshape\small\@date}
+    \fancyhead[C]{\begin{tabular}{p{\headerlengthmiddle}}\centering\scshape\small {{\scshape\small\ifodd\value{page} {\scshape\small{{\thistitle}}}\else {\small\@altauthor}\fi}}\end{tabular}}
 
-  \setlength{\headheight}{24.5042pt}
-}
+    \setlength{\headheight}{24.5042pt}
+  }
 
-\pagestyle{rosstexstyle}
+  \pagestyle{rosstexstyle}
 
-\renewcommand{\defaultheader}{Problem}
+  \renewcommand{\defaultheader}{Problem}
 
-\renewcommand{\thesubsection}{\thesection\ (\alph{subsection})}
-\renewcommand{\thesubsubsection}{\thesubsection(\textit{\roman{subsubsection}})}
+  \renewcommand{\thesubsection}{\thesection\ (\alph{subsection})}
+  \renewcommand{\thesubsubsection}{\thesubsection(\textit{\roman{subsubsection}})}
 
-\titlecontents{subsection}
+  \titlecontents{subsection}
   [3.5em]
   {}
   {\contentslabel{2.9em}}
   {\hspace*{-2.9em}}
-  {\titlerule*[1pc]{.}\contentspage}  
+  {\titlerule*[1pc]{.}\contentspage}
 
-\titlecontents{subsubsection}
+  \titlecontents{subsubsection}
   [5.25em]
   {}
   {\contentslabel{3.9em}}
   {\hspace*{-3.9em}}
-  {\titlerule*[1pc]{.}\contentspage} 
+  {\titlerule*[1pc]{.}\contentspage}
 
-\titleformat{\subsection}[runin]
+  \titleformat{\subsection}[runin]
   {\normalfont\bfseries}
   {\textbf{(\alph{subsection})}\ }
   {0em}
   {\bfseries}
   [.]
 
-\titleformat{\subsubsection}[runin]
+  \titleformat{\subsubsection}[runin]
   {\normalfont}
   {{(\textit{\roman{subsection}})}\ }
   {0em}
   {\itshape}
   [.]
 \else
-\RequirePackage{indentfirst}
+  \RequirePackage{indentfirst}
 \fi
 
 \endinput
