@@ -1,11 +1,12 @@
 import json
 
+CONFIG_NAME = 'build_config.json'
 SOURCE_NAME = 'source.cls'
 OUT_NAME = 'notex.cls'
 
 
 class Builder:
-    def __init__(self, config_file='build_config.json'):
+    def __init__(self, config_file=CONFIG_NAME):
         with open(SOURCE_NAME) as file:
             self.clstext = file.read()
 
