@@ -1,16 +1,31 @@
-`notex.cls` defines a series of behavior based on the `amsart` class.
+# NoTeX
 
-* Sections, Subsections, and Subsubsections are now Chapters, Modules, and Topics.
-* * They can be customized using `\headertitle{}`, `\subheadertitle{}`, and `\subsubheadertitle{}`.
-* Builtin environment for Problem, Theorem, Lemma, Corollary, Definition, and more.
-  * The `custom` environment allows custom options for theorem title, color, and more.
-* Revamped `proof` environment to use a box similar to theorem and lemma. The old `proof` environment provided by `amsart` can be accessed by `legacyproof`.
-* `\title` is not necessarily defined. Instead, a variable named `lecture` gives you the option to directly input the information of the lecture. The title will then be automatically formulated as `Lecture #{lecture}`.
-* Provides some shortcut to mathematical environments like `\floor{}`.
-* Try out `\NoTeX` and `\RossTeX`!
-* Has an extra option named `rosstex`.
-  * Activated using `\documentclass[rosstex]{notex}`.
-    * `\lecture` will now denote the number of the problem set, making the title `Problem Set #{}`. Additionally, `\psetnum` command will be available as an alias to `\lecture`.
-  * Redefines Sections to Problems.
-  * Redefines Subsections and Subsubsections resembling those in `amsart` class.
-  * Has an optional Ross Program logo enabled using `\enablerosslogo`.
+The NoTeX document class is a custom LaTeX class designed for comprehensive notetaking and math problem solution typesetting. It extends the amsart class and includes numerous packages and custom commands to enhance functionality and appearance.
+
+## Installation
+
+NoTeX is available through the latest GitHub release. User may also build the document class manually by running `build.py`, and the resulting `notex.cls` and other files will be located in the `dist` subdirectory. Included files are `main.tex`, `example.tex`, `reference.bib`, and `res/rosslogo.pdf`.
+
+# Notable Features
+
+- Modified section hierarchy: Chapters, Modules, and Topics
+- - Customizable using `\headertitle{}`, `\subheadertitle{}`, and `\subsubheadertitle{}`
+- Built-in environments for Problem, Theorem, Lemma, Corollary, Definition, and more
+- - Custom environment for theorem title, color, and other options
+- Revamped `proof` environment with a box similar to theorem and lemma
+- - Legacy `proof` environment accessible via `legacyproof`
+- Optional `\title` definition
+- - `lecture` variable for automatic title formatting as Lecture #{lecture}
+- Shortcuts for mathematical environments (e.g., `\floor{}`)
+- Special commands: `\NoTeX` and `\RossTeX`
+- `rosstex` option for problem set typesetting
+- - Activated with `\documentclass[rosstex]{notex}`
+- - Redefines sections as Problems
+- - Modifies subsection and subsubsection formatting
+- - Optional Ross Program logo enabled with \enablerosslogo
+
+# Document Options
+
+All document options from amsart class are carried over to NoTeX. Some options, however, are not tested and may produce unexpected results.
+
+NoTeX introduces one custom option, `rosstex`. Enabling `rosstex` repurposes the document into a problem solution typesetting situation. It modifies the format of titles of subsection, and subsubsection to using abc and (i)(ii)(iii) numbering, respectively. It also changes the header format.
