@@ -6,7 +6,7 @@ The NoTeX document class is a custom LaTeX class designed for comprehensive note
 
 NoTeX is available through the latest GitHub release. User may also build the document class manually by running `build.py`, and the resulting `notex.cls` and other files will be located in the `dist` subdirectory. Included files are `main.tex`, `example.tex`, `reference.bib`, and `res/rosslogo.pdf`.
 
-# Notable Features
+## Notable Features
 
 - Modified section hierarchy: Chapters, Modules, and Topics
 - - Customizable using `\headertitle{}`, `\subheadertitle{}`, and `\subsubheadertitle{}`
@@ -24,7 +24,7 @@ NoTeX is available through the latest GitHub release. User may also build the do
 - - Modifies subsection and subsubsection formatting
 - - Optional Ross Program logo enabled with \enablerosslogo
 
-# Document Options
+## Document Options
 
 All document options from amsart class are carried over to NoTeX. Some options, however, are not tested and may produce unexpected results.
 
