@@ -90,7 +90,7 @@ class Builder:
         if style == 'box':
             style_attrs = f"boxsep=0.45em, colframe={{{colorFrame}}}, left=0.2em, right=0.2em"
         elif style == 'blockquote':
-            style_attrs = f"boxsep=0.4em, colframe={{{colorContent}}}, borderline west={{3.6pt}}{{0pt}}{{{colorFrame}}}, left=0.7em, right=0.3em, toprule=2mm"
+            style_attrs = f"boxsep=0.36em, colframe={{{colorContent}}}, borderline west={{3.6pt}}{{0pt}}{{{colorFrame}}}, left=0.7em, right=0.3em, toprule=2mm"
         else:
             raise ValueError('Unknown style.')
 
