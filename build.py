@@ -4,6 +4,8 @@ CONFIG_NAME = 'build_config.json'
 SOURCE_NAME = 'source.cls'
 OUT_NAME = 'notex.cls'
 
+# TODO: a style option in build config. style include box and blockquote. just saying
+
 
 class Builder:
     def __init__(self, config_file=CONFIG_NAME):
@@ -63,8 +65,8 @@ class Builder:
     def generate_environment(self, env, variant=''):
         name = f"{env['name']}{variant}"
         title = env['title']
-        colback = env['colback']
-        colframe = env['colframe']
+        colorContent = env['colorContent']
+        colorFrame = env['colorFrame']
 
         if variant == '':
             counter = r'\refstepcounter{thmcounter}'
@@ -77,7 +79,7 @@ class Builder:
             section = r' \arabic{thmcounternosection}'
 
         template = r"""\newenvironment{{{name}}}[1][]{{\par{counter}\begin{{tcolorbox}}[title={{{title}{section}\ifx\\#1\\\else: #1\fi}}, nobeforeafter, after=\vspace{{0.2em}}, before=\vspace{{0.2em}}, colback={colback}, colframe={colframe}, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}}{{\end{{tcolorbox}}\par}}"""
-        return template.format(name=name, title=title, colback=colback, colframe=colframe, counter=counter, section=section)
+        return template.format(name=name, title=title, colback=colorContent, colframe=colorFrame, counter=counter, section=section)
 
     def generate_custom_environment(self, variant=''):
         if variant in ['', '*', '**']:
