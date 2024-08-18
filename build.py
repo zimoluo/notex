@@ -48,6 +48,14 @@ class Builder:
         ]
         self.replace_section('CUSTOM_ENVIRONMENT', '\n'.join(custom_envs))
 
+    def build_colors(self):
+        color_definitions = []
+        for color_name, color_code in self.config.get('colors', {}).items():
+            color_definitions.append(
+                f"\\definecolor{{{color_name}}}{{HTML}}{{{color_code}}}")
+
+        self.replace_section('COLORS', '\n'.join(color_definitions))
+
     def replace_section(self, section_name, content):
         start_marker = f"% BEGIN {section_name}"
         end_marker = f"% END {section_name}"

@@ -98,5 +98,35 @@
       "style": "blockquote"
     }
   ],
-  "build_steps": ["environments", "custom_environment"]
+  "colors": {
+    "pgreen": "047101",
+    "pred": "FF634D",
+    "pblue": "0376BB",
+    "plightgreen": "D0FFB8",
+    "plightblue": "B3E2FF",
+    "plightred": "FE968D",
+    "pyellow": "F7BA00",
+    "psilver": "D5D5D5",
+    "plightgray": "929292",
+    "pgray": "717171",
+    "pblack": "000000",
+    "pwhite": "FFFFFF",
+    "porange": "FF9400",
+    "pmagenta": "EE5FA7",
+    "plightorange": "F9CB9C",
+    "pgold": "EFB219",
+    "plavender": "F4BBFF",
+    "psalmon": "FA8072",
+    "pdarkred": "CC4125",
+    "pshadegreen": "8DAF8B",
+    "pbluegreen": "2FAE94",
+    "pmidblue": "6EB8E0",
+    "pviolet": "A868BD",
+    "pvioletred": "BD6284",
+    "pyellowgreen": "B7C635",
+    "pdarkskin": "C6A47C",
+    "pdarkblue": "0052C6",
+    "pdustyellow": "C69423"
+  },
+  "build_steps": ["colors", "environments", "custom_environment"]
 }

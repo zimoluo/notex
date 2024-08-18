@@ -44,34 +44,9 @@
   linktoc=all
 }
 
-\definecolor{pgreen}{HTML}{047101}
-\definecolor{pred}{HTML}{FF634D}
-\definecolor{pblue}{HTML}{0376BB}
-\definecolor{plightgreen}{HTML}{D0FFB8}
-\definecolor{plightblue}{HTML}{B3E2FF}
-\definecolor{plightred}{HTML}{FE968D}
-\definecolor{pyellow}{HTML}{F7BA00}
-\definecolor{psilver}{HTML}{D5D5D5}
-\definecolor{plightgray}{HTML}{929292}
-\definecolor{pgray}{HTML}{717171}
-\definecolor{pblack}{HTML}{000000}
-\definecolor{pwhite}{HTML}{FFFFFF}
-\definecolor{porange}{HTML}{FF9400}
-\definecolor{pmagenta}{HTML}{EE5FA7}
-\definecolor{plightorange}{HTML}{F9CB9C}
-\definecolor{pgold}{HTML}{EFB219}
-\definecolor{plavender}{HTML}{F4BBFF}
-\definecolor{psalmon}{HTML}{FA8072}
-\definecolor{pdarkred}{HTML}{CC4125}
-\definecolor{pshadegreen}{HTML}{8DAF8B}
-\definecolor{pbluegreen}{HTML}{2FAE94}
-\definecolor{pmidblue}{HTML}{6EB8E0}
-\definecolor{pviolet}{HTML}{A868BD}
-\definecolor{pvioletred}{HTML}{BD6284}
-\definecolor{pyellowgreen}{HTML}{B7C635}
-\definecolor{pdarkskin}{HTML}{C6A47C}
-\definecolor{pdarkblue}{HTML}{0052C6}
-\definecolor{pdustyellow}{HTML}{C69423}
+% BEGIN COLORS
+
+% END COLORS
 
 \setstretch{1.24}
 \setlength\parindent{1.6em}
