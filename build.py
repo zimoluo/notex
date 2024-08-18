@@ -1,4 +1,5 @@
 import json
+import os
 
 CONFIG_NAME = 'build_config.json'
 SOURCE_NAME = 'source.cls'
@@ -26,7 +27,8 @@ class Builder:
         self.write_output()
 
     def write_output(self):
-        with open(OUT_NAME, 'w') as file:
+        os.makedirs('./dist', exist_ok=True)
+        with open(f'./dist/{OUT_NAME}', 'w') as file:
             file.write(self.clstext)
 
     def build_environments(self):
@@ -110,6 +112,10 @@ class Builder:
             return r"""\NewDocumentEnvironment{custom***}{mmmo}{\par\begin{tcolorbox}[title={#1 #3\IfNoValueTF{#4}{}{: #4}}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=#2!08,colframe=#2!25,coltitle=black,fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}{\end{tcolorbox}\par}"""
 
 
-if __name__ == '__main__':
+def build_main():
     builder = Builder()
     builder.build()
+
+
+if __name__ == '__main__':
+    build_main()

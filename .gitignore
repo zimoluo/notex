@@ -7,6 +7,12 @@ built_notex.cls
 *.pdf
 test.tex
 
+.env.local
+
+dist/
+
+__pycache__/
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
