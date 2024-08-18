@@ -87,7 +87,6 @@ class Builder:
 
         common_attrs = f"title={{{title}{section}\\ifx\\\\#1\\\\\\else: #1\\fi}}, nobeforeafter, after=\\vspace{{0.2em}}, before=\\vspace{{0.2em}}, colback={{{colorContent}}}, coltitle=black, fonttitle=\\bfseries, top=0.2em, bottom=0.2em, enhanced, opacityframe=0.8, opacityback=0.8, breakable, pad at break*=0.2em"
 
-        # Define style-specific attributes
         if style == 'box':
             style_attrs = f"boxsep=0.45em, colframe={{{colorFrame}}}, left=0.2em, right=0.2em"
         elif style == 'blockquote':
