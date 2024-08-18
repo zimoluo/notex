@@ -4,8 +4,6 @@ CONFIG_NAME = 'build_config.json'
 SOURCE_NAME = 'source.cls'
 OUT_NAME = 'notex.cls'
 
-# TODO: a style option in build config. style include box and blockquote. just saying
-
 
 class Builder:
     def __init__(self, config_file=CONFIG_NAME):
@@ -67,6 +65,7 @@ class Builder:
         title = env['title']
         colorContent = env['colorContent']
         colorFrame = env['colorFrame']
+        style = env.get('style', 'box')
 
         if variant == '':
             counter = r'\refstepcounter{thmcounter}'
@@ -78,8 +77,19 @@ class Builder:
             counter = r'\refstepcounter{thmcounternosection}'
             section = r' \arabic{thmcounternosection}'
 
-        template = r"""\newenvironment{{{name}}}[1][]{{\par{counter}\begin{{tcolorbox}}[title={{{title}{section}\ifx\\#1\\\else: #1\fi}}, nobeforeafter, after=\vspace{{0.2em}}, before=\vspace{{0.2em}}, colback={colback}, colframe={colframe}, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}}{{\end{{tcolorbox}}\par}}"""
-        return template.format(name=name, title=title, colback=colorContent, colframe=colorFrame, counter=counter, section=section)
+        common_attrs = f"title={{{title}{section}\\ifx\\\\#1\\\\\\else: #1\\fi}}, nobeforeafter, after=\\vspace{{0.2em}}, before=\\vspace{{0.2em}}, colback={{{colorContent}}}, coltitle=black, fonttitle=\\bfseries, top=0.2em, bottom=0.2em, enhanced, opacityframe=0.8, opacityback=0.8, breakable, pad at break*=0.2em"
+
+        # Define style-specific attributes
+        if style == 'box':
+            style_attrs = f"boxsep=0.45em, colframe={{{colorFrame}}}, left=0.2em, right=0.2em"
+        elif style == 'blockquote':
+            style_attrs = f"boxsep=0.4em, colframe={{{colorContent}}}, borderline west={{3.6pt}}{{0pt}}{{{colorFrame}}}, left=0.7em, right=0.3em, toprule=2mm"
+        else:
+            raise ValueError('Unknown style.')
+
+        template = r"""\newenvironment{{{name}}}[1][]{{\par{counter}\begin{{tcolorbox}}[{common_attrs}, {style_attrs}]}}{{\end{{tcolorbox}}\par}}"""
+
+        return template.format(name=name, counter=counter, common_attrs=common_attrs, style_attrs=style_attrs)
 
     def generate_custom_environment(self, variant=''):
         if variant in ['', '*', '**']:

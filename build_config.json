@@ -40,19 +40,22 @@
       "name": "definition",
       "title": "Definition",
       "colorContent": "plightblue!16",
-      "colorFrame": "plightblue!45"
+      "colorFrame": "plightblue!45",
+      "style": "blockquote"
     },
     {
       "name": "problem",
       "title": "Problem",
       "colorContent": "plightgreen!18",
-      "colorFrame": "plightgreen!65"
+      "colorFrame": "plightgreen!65",
+      "style": "blockquote"
     },
     {
       "name": "example",
       "title": "Example",
       "colorContent": "pdustyellow!06",
-      "colorFrame": "pdustyellow!18"
+      "colorFrame": "pdustyellow!18",
+      "style": "blockquote"
     },
     {
       "name": "solution",
@@ -64,7 +67,8 @@
       "name": "remark",
       "title": "Remark",
       "colorContent": "pyellowgreen!08",
-      "colorFrame": "pyellowgreen!25"
+      "colorFrame": "pyellowgreen!25",
+      "style": "blockquote"
     },
     {
       "name": "claim",
@@ -76,19 +80,22 @@
       "name": "exercise",
       "title": "Exercise",
       "colorContent": "pdarkskin!07",
-      "colorFrame": "pdarkskin!25"
+      "colorFrame": "pdarkskin!25",
+      "style": "blockquote"
     },
     {
       "name": "question",
       "title": "Question",
       "colorContent": "pbluegreen!08",
-      "colorFrame": "pbluegreen!25"
+      "colorFrame": "pbluegreen!25",
+      "style": "blockquote"
     },
     {
       "name": "fact",
       "title": "Fact",
       "colorContent": "pvioletred!08",
-      "colorFrame": "pvioletred!25"
+      "colorFrame": "pvioletred!25",
+      "style": "blockquote"
     }
   ],
   "build_steps": ["environments", "custom_environment"]
