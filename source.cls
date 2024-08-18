@@ -2,7 +2,7 @@
 \ProvidesClass{notex}[2023/07/02 NoTeX]
 
 \PassOptionsToClass{reqno}{amsart}
-\DeclareOption{12pt}{\PassOptionsToClass{12pt}{amsart}}
+
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{amsart}}
 
 \newif\ifrosstex
