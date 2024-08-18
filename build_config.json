@@ -1,0 +1,95 @@
+{
+  "environments": [
+    {
+      "name": "theorem",
+      "title": "Theorem",
+      "colback": "plightred!07",
+      "colframe": "plightred!28"
+    },
+    {
+      "name": "lemma",
+      "title": "Lemma",
+      "colback": "porange!04",
+      "colframe": "porange!25"
+    },
+    {
+      "name": "corollary",
+      "title": "Corollary",
+      "colback": "pgold!04",
+      "colframe": "pgold!25"
+    },
+    {
+      "name": "proposition",
+      "title": "Proposition",
+      "colback": "plavender!08",
+      "colframe": "plavender!35"
+    },
+    {
+      "name": "statement",
+      "title": "Statement",
+      "colback": "pmagenta!04",
+      "colframe": "pmagenta!25"
+    },
+    {
+      "name": "conjecture",
+      "title": "Conjecture",
+      "colback": "pdarkred!04",
+      "colframe": "pdarkred!15"
+    },
+    {
+      "name": "definition",
+      "title": "Definition",
+      "colback": "plightblue!16",
+      "colframe": "plightblue!45"
+    },
+    {
+      "name": "problem",
+      "title": "Problem",
+      "colback": "plightgreen!18",
+      "colframe": "plightgreen!65"
+    },
+    {
+      "name": "example",
+      "title": "Example",
+      "colback": "pdustyellow!06",
+      "colframe": "pdustyellow!18"
+    },
+    {
+      "name": "solution",
+      "title": "Solution",
+      "colback": "pdarkblue!03",
+      "colframe": "pdarkblue!14"
+    },
+    {
+      "name": "remark",
+      "title": "Remark",
+      "colback": "pyellowgreen!08",
+      "colframe": "pyellowgreen!25"
+    },
+    {
+      "name": "claim",
+      "title": "Claim",
+      "colback": "pviolet!06",
+      "colframe": "pviolet!25"
+    },
+    {
+      "name": "exercise",
+      "title": "Exercise",
+      "colback": "pdarkskin!07",
+      "colframe": "pdarkskin!25"
+    },
+    {
+      "name": "question",
+      "title": "Question",
+      "colback": "pbluegreen!08",
+      "colframe": "pbluegreen!25"
+    },
+    {
+      "name": "fact",
+      "title": "Fact",
+      "colback": "pvioletred!08",
+      "colframe": "pvioletred!25"
+    }
+  ],
+  "build_steps": ["environments", "custom_environment"]
+}
