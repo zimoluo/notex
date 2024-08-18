@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 import shutil
 import json
 import zipfile
-from datetime import datetime
+from datetime import datetime, timezone
 from build import build_main
 
 
@@ -26,7 +26,7 @@ def main():
         return response.status_code == 200
 
     # Generate version number
-    today = datetime.now().strftime("%Y%m%d")
+    today = datetime.now(timezone.utc).strftime("%Y%m%d")
     n = 1
     while tag_exists(f'v{today}_{n}'):
         n += 1
@@ -79,15 +79,6 @@ def main():
 
     # Create ./dist directory if it doesn't exist
     os.makedirs('./dist', exist_ok=True)
-
-    # Copy specific files to ./dist
-    files_to_copy = ['./res', 'example.tex', 'main.tex', 'reference.bib']
-    for item in files_to_copy:
-        if os.path.isdir(item):
-            shutil.copytree(item, os.path.join(
-                './dist', os.path.basename(item)))
-        else:
-            shutil.copy(item, './dist')
 
     # Remove trash files from ./dist
     for root, dirs, files in os.walk('./dist'):

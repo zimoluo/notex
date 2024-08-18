@@ -1,14 +1,15 @@
 import json
 import os
+import shutil
 
 CONFIG_NAME = 'build_config.json'
 SOURCE_NAME = 'source.cls'
 OUT_NAME = 'notex.cls'
 
 
-class Builder:
+class CLSBuilder:
     def __init__(self, config_file=CONFIG_NAME):
-        with open(SOURCE_NAME) as file:
+        with open(f'./src/{SOURCE_NAME}') as file:
             self.clstext = file.read()
 
         with open(config_file, 'r') as f:
@@ -112,9 +113,25 @@ class Builder:
             return r"""\NewDocumentEnvironment{custom***}{mmmo}{\par\begin{tcolorbox}[title={#1 #3\IfNoValueTF{#4}{}{: #4}}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=#2!08,colframe=#2!25,coltitle=black,fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}{\end{tcolorbox}\par}"""
 
 
+def copy_rest_files():
+    os.makedirs('./dist', exist_ok=True)
+
+    files_to_copy = ['./src/res', './src/example.tex',
+                     './src/main.tex', './src/reference.bib']
+    for item in files_to_copy:
+        if os.path.isdir(item):
+            shutil.copytree(item, os.path.join(
+                './dist', os.path.basename(item)))
+        else:
+            shutil.copy(item, './dist')
+
+
 def build_main():
-    builder = Builder()
+    os.makedirs('./dist', exist_ok=True)
+    shutil.rmtree('./dist')
+    builder = CLSBuilder()
     builder.build()
+    copy_rest_files()
 
 
 if __name__ == '__main__':
