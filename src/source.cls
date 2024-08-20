@@ -181,7 +181,7 @@
 \let\endproof\undefined
 
 \newenvironment{proof}[1][]
-{\par\begin{tcolorbox}[title={\ifx\\#1\\\textit{Proof.}\else\textit{Proof:} #1\fi}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=psilver!15, colframe=psilver!65, coltitle=black, fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=.75,opacityback=0.8,breakable,pad at break*=0.2em]}
+{\par\begin{tcolorbox}[title={\ifx\\#1\\\textit{Proof.}\else\textit{Proof:} #1\textit{.}\fi}, attach title to upper={\ }, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=psilver!15, colframe=psilver!65, coltitle=black, fonttitle=\bfseries, boxsep=0.45em, left=0.2em, right=0.2em, top=0.2em, bottom=0.2em, enhanced, opacityframe=0.8, opacityback=0.8, breakable, pad at break*=0.2em]}
     {\hfill \qedsymbol\end{tcolorbox}\par}
 
 \renewcommand{\@maketitle}{
