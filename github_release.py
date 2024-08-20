@@ -88,11 +88,17 @@ def main():
 
     # Create a ZIP file of the ./dist directory
     zip_filename = f'notex_{software_version}.zip'
+    files_to_include = [
+        'example.tex',
+        'main.tex',
+        'notex.cls',
+        'reference.bib',
+        os.path.join('res', 'rosslogo.pdf')
+    ]
     with zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
-        for root, dirs, files in os.walk('./dist'):
-            for file in files:
-                file_path = os.path.join(root, file)
-                zipf.write(file_path, os.path.relpath(file_path, './dist'))
+        for file in files_to_include:
+            file_path = os.path.join('./dist', file)
+            zipf.write(file_path, os.path.relpath(file_path, './dist'))
 
     # Function to upload an asset to a GitHub release
     def upload_asset_to_release(upload_url, file_path):
