@@ -88,7 +88,7 @@ class CLSBuilder:
             counter = r'\refstepcounter{thmcounternosection}'
             section = r' \arabic{thmcounternosection}'
 
-        common_attrs = f"title={{{title}{section}\\ifx\\\\#1\\\\\\else: #1\\fi}}, nobeforeafter, after=\\vspace{{0.2em}}, before=\\vspace{{0.2em}}, colback={{{colorContent}}}, coltitle=black, fonttitle=\\bfseries, top=0.2em, bottom=0.2em, enhanced, opacityframe=0.8, opacityback=0.8, breakable, pad at break*=0.2em"
+        common_attrs = f"title={{{title}{section}\\ifx\\\\#1\\\\\\else: #1\\fi}}, nobeforeafter, after=\\vspace{{0.25em}}, before=\\vspace{{0.8em}}, colback={{{colorContent}}}, coltitle=black, fonttitle=\\bfseries, top=0.2em, bottom=0.2em, enhanced, opacityframe=0.8, opacityback=0.8, breakable, pad at break*=0.2em"
 
         if style == 'box':
             style_attrs = f"boxsep=0.45em, colframe={{{colorFrame}}}, left=0.2em, right=0.2em"
@@ -103,14 +103,14 @@ class CLSBuilder:
 
     def generate_custom_environment(self, variant=''):
         if variant in ['', '*', '**']:
-            return r"""\NewDocumentEnvironment{{custom{variant}}}{{mmo}}{{\par{counter}\begin{{tcolorbox}}[title={{#1{section}\IfNoValueTF{{#3}}{{}}{{: #3}}}},nobeforeafter, after=\vspace{{0.2em}}, before=\vspace{{0.2em}}, colback=#2!08,colframe=#2!25,coltitle=black,fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=0.8,opacityback=0.8,breakable,pad at break*=0.2em]}}{{\end{{tcolorbox}}\par}}""".format(
+            return r"""\NewDocumentEnvironment{{custom{variant}}}{{mmo}}{{\par{counter}\begin{{tcolorbox}}[title={{#1{section}\IfNoValueTF{{#3}}{{}}{{: #3}}}},nobeforeafter, after=\vspace{{0.25em}}, before=\vspace{{0.8em}}, colback=#2!08,colframe=#2!25,coltitle=black,fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=0.8,opacityback=0.8,breakable,pad at break*=0.2em]}}{{\end{{tcolorbox}}\par}}""".format(
                 variant=variant,
                 counter=r'\refstepcounter{thmcounter}' if variant == '' else (
                     r'\refstepcounter{thmcounternosection}' if variant == '**' else ''),
                 section=r' \thesection.\arabic{thmcounter}' if variant == '' else r' \arabic{thmcounternosection}' if variant == '**' else ''
             )
         elif variant == '***':
-            return r"""\NewDocumentEnvironment{custom***}{mmmo}{\par\begin{tcolorbox}[title={#1 #3\IfNoValueTF{#4}{}{: #4}}, nobeforeafter, after=\vspace{0.2em}, before=\vspace{0.2em}, colback=#2!08,colframe=#2!25,coltitle=black,fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=0.8,opacityback=0.8,breakable,pad at break*=0.2em]}{\end{tcolorbox}\par}"""
+            return r"""\NewDocumentEnvironment{custom***}{mmmo}{\par\begin{tcolorbox}[title={#1 #3\IfNoValueTF{#4}{}{: #4}}, nobeforeafter, after=\vspace{0.25em}, before=\vspace{0.8em}, colback=#2!08,colframe=#2!25,coltitle=black,fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=0.8,opacityback=0.8,breakable,pad at break*=0.2em]}{\end{tcolorbox}\par}"""
 
 
 def copy_rest_files():
