@@ -247,7 +247,7 @@
   \fancyhead[LO]{\begin{tabular}{p{\headerlengthside}}\raggedright\scshape\small\leftmark\end{tabular}}
   \fancyhead[RE]{\begin{tabular}{p{\headerlengthside}}\raggedleft\scshape\small\leftmark\end{tabular}}
   \fancyhead[C]{\begin{tabular}{p{\headerlengthmiddle}}\centering\scshape\small {{\scshape\small\ifodd\value{page} {\scshape\small{{\thistitle}}}\else {\small\@altauthor}\fi}}\end{tabular}}
-  \setlength{\headheight}{24.5042pt}
+  \setlength{\headheight}{2.042em}
 }
 
 \pagestyle{notexstyle}
@@ -370,7 +370,7 @@
     \fancyhead[LO,RE]{\scshape\small\@date}
     \fancyhead[C]{\begin{tabular}{p{\headerlengthmiddle}}\centering\scshape\small {{\scshape\small\ifodd\value{page} {\scshape\small{{\thistitle}}}\else {\small\@altauthor}\fi}}\end{tabular}}
 
-    \setlength{\headheight}{24.5042pt}
+    \setlength{\headheight}{2.042em}
   }
 
   \pagestyle{rosstexstyle}
