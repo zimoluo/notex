@@ -44,6 +44,7 @@ class CLSBuilder:
 
     def build_custom_environment(self):
         custom_envs = [
+            f"\\define@key{{custom}}{{header}}{{\\def\\customheader{{#1}}}}\\define@key{{custom}}{{title}}{{\\def\\customtitle{{#1}}}}\\define@key{{custom}}{{color}}{{\\def\\customcolor{{#1}}}}\\define@key{{custom}}{{style}}{{\\def\\customstyle{{#1}}}}",
             self.generate_custom_environment(),
             self.generate_custom_environment('*'),
             self.generate_custom_environment('**'),
@@ -139,43 +140,12 @@ class CLSBuilder:
             section = r' \thesection.\arabic{thmcounter}' if variant == '' else (
                 r' \arabic{thmcounternosection}' if variant == '**' else '')
 
-            common_options = self.get_common_tcolorbox_options(
-                '#1', '#1', '#2')
+            box_options = self.get_common_tcolorbox_options(
+                r'\customcolor!08', r'\customcolor!25', 'box')
+            blockquote_options = self.get_common_tcolorbox_options(
+                r'\customcolor!08', r'\customcolor!25', 'blockquote')
 
-            return fr"""\NewDocumentEnvironment{{custom{variant}}}{{O{{color=silver}}o}}{{
-    \par{counter}
-    \def\customcolor{{silver}}
-    \def\customtitle{{}}
-    \def\customstyle{{box}}
-    \IfValueT{{#1}}{{
-        \def\do##1{{
-            \ifx\\##1\\
-            \else
-                \expandafter\getcustomarg##1=\relax
-            \fi
-        }}
-        \expandafter\docsvlist\expandafter{{#1}}
-    }}
-    \IfValueT{{#2}}{{
-        \def\customtitle{{#2}}
-    }}
-    \begin{{tcolorbox}}[
-        title={{\customtitle{section}}},
-        {common_options}
-    ]
-}}{{
-    \end{{tcolorbox}}
-    \par
-}}
-
-\def\getcustomarg#1=#2\relax{{
-    \ifx#1color
-        \def\customcolor{{#2}}
-    \fi
-    \ifx#1style
-        \def\customstyle{{#2}}
-    \fi
-}}"""
+            return f"""\\newenvironment{{custom{variant}}}[1][]{{\\par{counter}\\def\\customcolor{{blue}}\\def\\customheader{{Custom}}\\def\\customtitle{{}}\\def\\customstyle{{box}}\\setkeys{{custom}}{{#1}}\\begin{{tcolorbox}}[title={{\\customheader{{{section}}}\\ifx\\customtitle\\empty\\else:{{ \\customtitle}}\\fi}},\\ifstrequal{{\\customstyle}}{{box}}{{{box_options}}}{{{blockquote_options}}}]}}{{\\end{{tcolorbox}}\\par}}"""
 
 
 def copy_rest_files():
