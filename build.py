@@ -47,7 +47,6 @@ class CLSBuilder:
             self.generate_custom_environment(),
             self.generate_custom_environment('*'),
             self.generate_custom_environment('**'),
-            self.generate_custom_environment('***'),
         ]
         self.replace_section('CUSTOM_ENVIRONMENT', '\n'.join(custom_envs))
 
@@ -71,11 +70,48 @@ class CLSBuilder:
                 self.clstext[end + len(end_marker):]
             )
 
+    def get_common_tcolorbox_options(self, color_content, color_frame, style='box'):
+        common_options = [
+            "nobeforeafter",
+            "after=\\vspace{0.25em}",
+            "before=\\vspace{0.8em}",
+            f"colback={color_content}",
+            "coltitle=black",
+            "fonttitle=\\bfseries",
+            "top=0.2em",
+            "bottom=0.2em",
+            "enhanced",
+            "opacityframe=0.8",
+            "opacityback=0.8",
+            "breakable",
+            "pad at break*=0.2em",
+            "parbox=false"
+        ]
+
+        if style == 'box':
+            common_options.extend([
+                "boxsep=0.45em",
+                f"colframe={color_frame}",
+                "left=0.2em",
+                "right=0.2em"
+            ])
+        elif style == 'blockquote':
+            common_options.extend([
+                "boxsep=0.36em",
+                f"colframe={color_content}",
+                f"borderline west={{0.3em}}{{0pt}}{{{color_frame}}}",
+                "left=0.7em",
+                "right=0.3em",
+                "toprule=2mm"
+            ])
+
+        return ', '.join(common_options)
+
     def generate_environment(self, env, variant=''):
         name = f"{env['name']}{variant}"
         title = env['title']
-        colorContent = env['colorContent']
-        colorFrame = env['colorFrame']
+        color_content = env['colorContent']
+        color_frame = env['colorFrame']
         style = env.get('style', 'box')
 
         if variant == '':
@@ -88,29 +124,58 @@ class CLSBuilder:
             counter = r'\refstepcounter{thmcounternosection}'
             section = r' \arabic{thmcounternosection}'
 
-        common_attrs = f"title={{{title}{section}\\ifx\\\\#1\\\\\\else: #1\\fi}}, nobeforeafter, after=\\vspace{{0.25em}}, before=\\vspace{{0.8em}}, colback={{{colorContent}}}, coltitle=black, fonttitle=\\bfseries, top=0.2em, bottom=0.2em, enhanced, opacityframe=0.8, opacityback=0.8, breakable, pad at break*=0.2em, parbox=false"
+        common_options = self.get_common_tcolorbox_options(
+            color_content, color_frame, style)
+        title_option = f"title={{{title}{section}\\ifx\\\\#1\\\\\\else: #1\\fi}}"
 
-        if style == 'box':
-            style_attrs = f"boxsep=0.45em, colframe={{{colorFrame}}}, left=0.2em, right=0.2em"
-        elif style == 'blockquote':
-            style_attrs = f"boxsep=0.36em, colframe={{{colorContent}}}, borderline west={{0.3em}}{{0pt}}{{{colorFrame}}}, left=0.7em, right=0.3em, toprule=2mm"
-        else:
-            raise ValueError('Unknown style.')
+        template = r"""\newenvironment{{{name}}}[1][]{{\par{counter}\begin{{tcolorbox}}[{title_option}, {common_options}]}}{{\end{{tcolorbox}}\par}}"""
 
-        template = r"""\newenvironment{{{name}}}[1][]{{\par{counter}\begin{{tcolorbox}}[{common_attrs}, {style_attrs}]}}{{\end{{tcolorbox}}\par}}"""
-
-        return template.format(name=name, counter=counter, common_attrs=common_attrs, style_attrs=style_attrs)
+        return template.format(name=name, counter=counter, title_option=title_option, common_options=common_options)
 
     def generate_custom_environment(self, variant=''):
         if variant in ['', '*', '**']:
-            return r"""\NewDocumentEnvironment{{custom{variant}}}{{mmo}}{{\par{counter}\begin{{tcolorbox}}[title={{#1{section}\IfNoValueTF{{#3}}{{}}{{: #3}}}},nobeforeafter, after=\vspace{{0.25em}}, before=\vspace{{0.8em}}, parbox=false, colback=#2!08,colframe=#2!25,coltitle=black,fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=0.8,opacityback=0.8,breakable,pad at break*=0.2em]}}{{\end{{tcolorbox}}\par}}""".format(
-                variant=variant,
-                counter=r'\refstepcounter{thmcounter}' if variant == '' else (
-                    r'\refstepcounter{thmcounternosection}' if variant == '**' else ''),
-                section=r' \thesection.\arabic{thmcounter}' if variant == '' else r' \arabic{thmcounternosection}' if variant == '**' else ''
-            )
-        elif variant == '***':
-            return r"""\NewDocumentEnvironment{custom***}{mmmo}{\par\begin{tcolorbox}[title={#1 #3\IfNoValueTF{#4}{}{: #4}}, nobeforeafter, after=\vspace{0.25em}, before=\vspace{0.8em}, colback=#2!08,colframe=#2!25,parbox=false,coltitle=black,fonttitle=\bfseries,boxsep=0.45em,left=0.2em,right=0.2em,top=0.2em,bottom=0.2em,enhanced,opacityframe=0.8,opacityback=0.8,breakable,pad at break*=0.2em]}{\end{tcolorbox}\par}"""
+            counter = r'\refstepcounter{thmcounter}' if variant == '' else (
+                r'\refstepcounter{thmcounternosection}' if variant == '**' else '')
+            section = r' \thesection.\arabic{thmcounter}' if variant == '' else (
+                r' \arabic{thmcounternosection}' if variant == '**' else '')
+
+            common_options = self.get_common_tcolorbox_options(
+                '#1', '#1', '#2')
+
+            return fr"""\NewDocumentEnvironment{{custom{variant}}}{{O{{color=silver}}o}}{{
+    \par{counter}
+    \def\customcolor{{silver}}
+    \def\customtitle{{}}
+    \def\customstyle{{box}}
+    \IfValueT{{#1}}{{
+        \def\do##1{{
+            \ifx\\##1\\
+            \else
+                \expandafter\getcustomarg##1=\relax
+            \fi
+        }}
+        \expandafter\docsvlist\expandafter{{#1}}
+    }}
+    \IfValueT{{#2}}{{
+        \def\customtitle{{#2}}
+    }}
+    \begin{{tcolorbox}}[
+        title={{\customtitle{section}}},
+        {common_options}
+    ]
+}}{{
+    \end{{tcolorbox}}
+    \par
+}}
+
+\def\getcustomarg#1=#2\relax{{
+    \ifx#1color
+        \def\customcolor{{#2}}
+    \fi
+    \ifx#1style
+        \def\customstyle{{#2}}
+    \fi
+}}"""
 
 
 def copy_rest_files():
