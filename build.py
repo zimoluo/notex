@@ -145,7 +145,10 @@ class CLSBuilder:
             blockquote_options = self.get_common_tcolorbox_options(
                 r'\customcolor!08', r'\customcolor!25', 'blockquote')
 
-            return f"""\\newenvironment{{custom{variant}}}[1][]{{\\par{counter}\\def\\customcolor{{blue}}\\def\\customheader{{Custom}}\\def\\customtitle{{}}\\def\\customstyle{{box}}\\setkeys{{custom}}{{#1}}\\begin{{tcolorbox}}[title={{\\customheader{{{section}}}\\ifx\\customtitle\\empty\\else:{{ \\customtitle}}\\fi}},\\ifstrequal{{\\customstyle}}{{box}}{{{box_options}}}{{{blockquote_options}}}]}}{{\\end{{tcolorbox}}\\par}}"""
+            common_title = r'\customheader{' + section + \
+                r'}\ifx\customtitle\empty\else: { \customtitle}\fi'
+
+            return f"""\\newenvironment{{custom{variant}}}[1][]{{\\par{counter}\\def\\customcolor{{blue}}\\def\\customheader{{Custom}}\\def\\customtitle{{}}\\def\\customstyle{{box}}\\setkeys{{custom}}{{#1}}\\ifdefstring{{\\customstyle}}{{box}}{{\\begin{{tcolorbox}}[title={{{common_title}}},{box_options}]}}{{\\begin{{tcolorbox}}[title={{{common_title}}},{blockquote_options}]}}}}{{\\end{{tcolorbox}}\\par}}"""
 
 
 def copy_rest_files():
