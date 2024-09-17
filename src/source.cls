@@ -6,8 +6,10 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{amsart}}
 
 \newif\ifrosstex
+\newif\ifqedsmiley
 
 \DeclareOption{rosstex}{\rosstextrue}
+\DeclareOption{qedsmiley}{\qedsmileytrue}
 
 \ProcessOptions\relax
 
@@ -127,6 +129,8 @@
     \node[inner sep=0pt] (TeX) at (2.85em, -0.15em) {\TeX};
   }
 }
+
+\newcommand{\qedsmiley}{\ooalign{\scalebox{1}{\rotatebox{180}{Q}}\cr\hfil\raisebox{0.2ex}{\scalebox{0.5}{\rotatebox{-90}{E}}}\hfil\cr\hfil\raisebox{-0.7ex}{\scalebox{0.4}{\rotatebox{-90}{D}}}\hfil\cr\hfil\raisebox{-1.642ex}{}\hfil\cr}}
 
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
 \newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
