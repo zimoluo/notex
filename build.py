@@ -71,7 +71,6 @@ class CLSBuilder:
 
         version = today.strftime('%Y-%m-%d')
 
-        # Content to inject between % BEGIN COPYRIGHT and % END COPYRIGHT
         content_lines = [
             f"% Copyright (c) {year_range} Zimo Luo. All rights reserved.",
             r"% Released under GNU GPL-3.0 license",
