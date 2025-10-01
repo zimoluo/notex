@@ -1,3 +1,7 @@
+% BEGIN COPYRIGHT
+
+% END COPYRIGHT
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{notex}[2023/07/02 NoTeX]
 

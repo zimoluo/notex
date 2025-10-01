@@ -1,6 +1,7 @@
 import json
 import os
 import shutil
+import datetime
 
 CONFIG_NAME = 'build_config.json'
 SOURCE_NAME = 'source.cls'
@@ -59,6 +60,28 @@ class CLSBuilder:
                 f"\\definecolor{{{color_name}}}{{HTML}}{{{color_code}}}")
 
         self.replace_section('COLORS', '\n'.join(color_definitions))
+
+    def build_copyright(self):
+        today = datetime.date.today()
+        current_year = today.year
+        if current_year > 2023:
+            year_range = f"2023--{current_year}"
+        else:
+            year_range = "2023"
+
+        version = today.strftime('%Y-%m-%d')
+
+        # Content to inject between % BEGIN COPYRIGHT and % END COPYRIGHT
+        content_lines = [
+            f"% Copyright (c) {year_range} Zimo Luo. All rights reserved.",
+            r"% Released under GNU GPL-3.0 license",
+            f"% Version {version}",
+            r"",
+            r"\providecommand{\copyrightyear}{" + f"{year_range}" + "}"
+        ]
+        content = '\n'.join(content_lines)
+
+        self.replace_section('COPYRIGHT', content)
 
     def replace_section(self, section_name, content):
         start_marker = f"% BEGIN {section_name}"

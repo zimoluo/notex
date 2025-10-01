@@ -128,5 +128,5 @@
     "pdarkblue": "0052C6",
     "pdustyellow": "C69423"
   },
-  "build_steps": ["colors", "environments", "custom_environment"]
+  "build_steps": ["colors", "environments", "custom_environment", "copyright"]
 }
