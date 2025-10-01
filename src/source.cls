@@ -252,7 +252,7 @@
 
 \pagestyle{notexstyle}
 
-\renewcommand{\contentsname}{\normalfont\raggedright\Large\scshape{Contents}\vskip 0.4em\hrule height 0.8pt}
+\renewcommand{\contentsname}{\normalfont\raggedright\large\scshape{Contents}\vskip 0.4em\hrule height 0.8pt}
 
 \titlecontents{section}
 [2.6em]
@@ -280,16 +280,16 @@
 
   \titleformat{\section}
   {\normalfont}
-  {\Large\scshape{{\defaultheader\ }\arabic{section}.}}
+  {\large\scshape{{\defaultheader\ }\arabic{section}.}}
   {0.4em}
-  {\Large\scshape}
+  {\large\scshape}
   [{\titlerule[0.8pt]}]
 
   \titleformat{name=\section,numberless}
   {\normalfont}
-  {\Large\scshape}
+  {\large\scshape}
   {0em}
-  {\Large\scshape}
+  {\large\scshape}
   [{\titlerule[0.8pt]}]
 }
 
@@ -324,15 +324,15 @@
   \renewcommand{\thesection}{\Alph{section}}
   \titleformat{\section}
   {\normalfont}
-  {\Large\scshape{Appendix \thesection. }}
+  {\large\scshape{Appendix \thesection. }}
   {0em}
-  {\Large\scshape}
+  {\large\scshape}
   [{\titlerule[0.8pt]}]
   \titleformat{name=\section,numberless}
   {\normalfont}
-  {\Large\scshape{{Appendix}.\ }}
+  {\large\scshape{{Appendix}.\ }}
   {0em}
-  {\Large\scshape}
+  {\large\scshape}
   [{\titlerule[0.8pt]}]
 }
 

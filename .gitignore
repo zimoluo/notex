@@ -319,3 +319,5 @@ TSWLatexianTemp*
 #*Notes.bib
 
 !src/res/rosslogo.pdf
+
+.vscode/
