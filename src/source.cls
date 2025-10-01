@@ -279,6 +279,7 @@
 
 \newcommand{\regularsection}{
   \renewcommand{\thesection}{\arabic{section}}
+  \renewcommand{\theHsection}{\arabic{section}}
 
   \titleformat{\section}
   {\normalfont}
@@ -324,6 +325,8 @@
 \renewcommand{\appendix}{
   \setcounter{section}{0}
   \renewcommand{\thesection}{\Alph{section}}
+  \renewcommand{\theHsection}{\Alph{section}}
+
   \titleformat{\section}
   {\normalfont}
   {\large\scshape{Appendix \thesection. }}
