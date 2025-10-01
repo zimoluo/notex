@@ -128,7 +128,7 @@ class CLSBuilder:
 
         common_options = self.get_common_tcolorbox_options(
             color_content, color_frame, style)
-        title_option = f"title={{{title}{section}\\ifx\\\\#1\\\\\\else (#1)\\fi}}"
+        title_option = f"title={{{title}{section}\\ifx\\\\#1\\\\\\else\\ (#1)\\fi}}"
 
         template = r"""\newenvironment{{{name}}}[1][]{{\par{counter}\begin{{tcolorbox}}[{title_option}, {common_options}]}}{{\end{{tcolorbox}}\par}}"""
 
@@ -147,14 +147,14 @@ class CLSBuilder:
                 r'\customcolor!08', r'\customcolor!25', 'blockquote')
 
             common_title = r'\customheader{' + section + \
-                r'}\ifx\customtitle\empty\else { (\customtitle)}\fi'
+                r'}\ifx\customtitle\empty\else {\ (\customtitle)}\fi'
 
             return f"""\\newenvironment{{custom{variant}}}[1][]{{\\par{counter}\\def\\customcolor{{blue}}\\def\\customheader{{Custom}}\\def\\customtitle{{}}\\def\\customstyle{{box}}\\setkeys{{custom}}{{#1}}\\ifdefstring{{\\customstyle}}{{box}}{{\\begin{{tcolorbox}}[title={{{common_title}}},{box_options}]}}{{\\begin{{tcolorbox}}[title={{{common_title}}},{blockquote_options}]}}}}{{\\end{{tcolorbox}}\\par}}"""
 
     def generate_proof_environment(self):
         common_options = self.get_common_tcolorbox_options(
             'psilver!15', 'psilver!65')
-        return r"""\ifalwayslegacyproof\newenvironment{proof}{\begin{legacyproof}}{\end{legacyproof}}\else\newenvironment{proof}[1][]{\par\begin{tcolorbox}[title={\ifx\\#1\\\textit{Proof.}\else\textit{Proof:} #1\textit{.}\fi}, attach title to upper={\ }, %s]}{\hfill {\ifqedsmiley{\raisebox{0.7em}{\scalebox{1.2}{\qedsmiley}}}\else{\qedsymbol}\fi}\end{tcolorbox}\par}\fi""" % common_options
+        return r"""\ifalwayslegacyproof\newenvironment{proof}{\begin{legacyproof}}{\end{legacyproof}}\else\newenvironment{proof}[1][]{\par\begin{tcolorbox}[title={\ifx\\#1\\\textit{Proof.}\else\textit{Proof}\ (#1)\textit{.}\fi}, attach title to upper={\ }, %s]}{\hfill {\ifqedsmiley{\raisebox{0.7em}{\scalebox{1.2}{\qedsmiley}}}\else{\qedsymbol}\fi}\end{tcolorbox}\par}\fi""" % common_options
 
 
 def copy_rest_files():
