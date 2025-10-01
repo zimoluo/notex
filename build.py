@@ -154,7 +154,7 @@ class CLSBuilder:
     def generate_proof_environment(self):
         common_options = self.get_common_tcolorbox_options(
             'psilver!15', 'psilver!65')
-        return r"""\newenvironment{proof}[1][]{\par\begin{tcolorbox}[title={\ifx\\#1\\\textit{Proof.}\else\textit{Proof:} #1\textit{.}\fi}, attach title to upper={\ }, %s]}{\hfill {\ifqedsmiley{\raisebox{0.7em}{\scalebox{1.2}{\qedsmiley}}}\else{\qedsymbol}\fi}\end{tcolorbox}\par}""" % common_options
+        return r"""\ifalwayslegacyproof\newenvironment{proof}{\begin{legacyproof}}{\end{legacyproof}}\else\newenvironment{proof}[1][]{\par\begin{tcolorbox}[title={\ifx\\#1\\\textit{Proof.}\else\textit{Proof:} #1\textit{.}\fi}, attach title to upper={\ }, %s]}{\hfill {\ifqedsmiley{\raisebox{0.7em}{\scalebox{1.2}{\qedsmiley}}}\else{\qedsymbol}\fi}\end{tcolorbox}\par}\fi""" % common_options
 
 
 def copy_rest_files():

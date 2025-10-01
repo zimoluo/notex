@@ -7,9 +7,11 @@
 
 \newif\ifrosstex
 \newif\ifqedsmiley
+\newif\ifalwayslegacyproof
 
 \DeclareOption{rosstex}{\rosstextrue}
 \DeclareOption{qedsmiley}{\qedsmileytrue}
+\DeclareOption{alwayslegacyproof}{\alwayslegacyprooftrue}
 
 \ProcessOptions\relax
 
