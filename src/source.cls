@@ -252,7 +252,7 @@
 
 \pagestyle{notexstyle}
 
-\renewcommand{\contentsname}{\normalfont\raggedright\large\scshape{Contents}\vskip 0.4em\hrule height 0.8pt}
+\renewcommand{\contentsname}{\normalfont\raggedright\large\scshape{Contents}\vskip 0.4em\hrule height 0.5pt}
 
 \titlecontents{section}
 [2.6em]
@@ -283,14 +283,14 @@
   {\large\scshape{{\defaultheader\ }\arabic{section}.}}
   {0.4em}
   {\large\scshape}
-  [{\titlerule[0.8pt]}]
+  [{\titlerule[0.5pt]}]
 
   \titleformat{name=\section,numberless}
   {\normalfont}
   {\large\scshape}
   {0em}
   {\large\scshape}
-  [{\titlerule[0.8pt]}]
+  [{\titlerule[0.5pt]}]
 }
 
 \regularsection
@@ -327,13 +327,13 @@
   {\large\scshape{Appendix \thesection. }}
   {0em}
   {\large\scshape}
-  [{\titlerule[0.8pt]}]
+  [{\titlerule[0.5pt]}]
   \titleformat{name=\section,numberless}
   {\normalfont}
   {\large\scshape{{Appendix}.\ }}
   {0em}
   {\large\scshape}
-  [{\titlerule[0.8pt]}]
+  [{\titlerule[0.5pt]}]
 }
 
 \newcounter{thmcounter}[section]
